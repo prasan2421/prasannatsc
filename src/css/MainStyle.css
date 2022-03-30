@@ -1,0 +1,72 @@
+
+
+body{
+    background-image:  url("https://cdn.pixabay.com/photo/2017/02/12/12/42/wall-2059909_640.png") ;
+  }  
+
+#root{
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; */
+}
+
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+    background-image: linear-gradient( white , white);
+}
+
+  .glass-panel {
+    color: #fff;
+    /* margin: 40px auto; */
+    background-color: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+    border-radius: 15px;
+    padding: 32px;
+    backdrop-filter: blur(10px);
+  }
+
+  .circle {
+    border: 0.3em dashed #2b2c2c;
+    border-radius: 50%;
+    box-shadow: 0.375em 0.375em 0 0 rgba(15, 28, 63, 0.125);
+    height: 20em;
+    width: 20em;
+  }
+
+  .circle2 {
+    border: 0.2em dashed #3f4141;
+    border-radius: 50%;
+    box-shadow: 0.375em 0.375em 0 0 rgba(15, 28, 63, 0.125);
+    height: 17em;
+    width: 17em;
+  }
+
+  .bodyContainer{
+    /* background-color:#f44336; */
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+    color:white;
+    
+    border: 0.2rem solid #fff;
+   
+    box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 0.5rem #bc13fe,
+              0 0 0.7rem #bc13fe,
+              0 0 0.9rem #bc13fe,
+              inset 0 0 0.8rem #bc13fe; 
+
+    text-shadow:
+              0 0 0.5px #fff,
+              0 0 1px #fff,
+              0 0 1.5px #fff,
+              0 0 30px #5271ff,
+              0 0 50px #5271ff,
+              0 0 60px #5271ff,
+              0 0 70px #5271ff,
+              0 0 80px #5271ff;
+}

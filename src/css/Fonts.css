@@ -1,0 +1,5 @@
+@font-face {
+    font-family: "LittleDaisy";   /*Can be any text*/
+    src: local('LittleDaisy'),
+      url('../assets/fonts/LittleDaisy.ttf') format("truetype");
+  }
