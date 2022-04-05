@@ -240,7 +240,7 @@ const Navbar = (props:any) => {
   );
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
-  const renderMobileMenu = (
+  const renderMobileMenu = (colorMode:any, theme:any) => (
     <Menu
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{
@@ -256,6 +256,14 @@ const Navbar = (props:any) => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      <MenuItem onClick={colorMode.toggleColorMode}>
+      <IconButton size="large" aria-label="Theme" color="inherit" >
+                
+                  {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                </IconButton>
+             
+              <p>{theme.palette.mode ==='dark'? 'Light': 'Dark'}</p>
+      </MenuItem>
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
@@ -299,7 +307,7 @@ const Navbar = (props:any) => {
 
   
 
-  const [mode, setMode] = React.useState<'light' | 'dark'>('light');
+  const [mode, setMode] = React.useState<'light' | 'dark'>('dark');
   const theme = React.useMemo(
     () =>
       createTheme({
@@ -354,7 +362,7 @@ theme={theme}
             
             
             </Box>
-            <Box sx={{flex:1, justifyContent:'left',display: { xs: 'none', md: 'flex' }}}>
+            <Box sx={{flex:1, justifyContent:'left',display: { xs: 'none', md: 'flex' },  color: 'text.primary',}}>
             
               <IconButton size="large" aria-label="facebook" color="inherit">
               
@@ -374,21 +382,22 @@ theme={theme}
               </Box>
             <Box
              
-              sx={{ flex: 1, textAlign:'center',margin:'10px'}}
+              sx={{ flex: 1, textAlign:'center',margin:'10px',color: 'text.primary',}}
             >
              
-              <h1 className="neonText">
+              {/* <h1 className="neonText"> */}
+              <h1 className={theme.palette.mode === 'dark' ? "neonText":"logoText"}>
               Prasanna  Tuladhar
               </h1>
             </Box>
             
-          <Box  sx={{ flex:1, justifyContent:'right', display: { xs: 'none', md: 'flex' } }}>
+          <Box  sx={{ flex:1, justifyContent:'right', display: { xs: 'none', md: 'flex' }, color: 'text.primary', }}>
             <Box>
             
               <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
-        {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-      </IconButton>
+                <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+                  {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                </IconButton>
               </IconButton>
               <IconButton
                 size="large"
@@ -435,7 +444,7 @@ theme={theme}
           <Toolbar 
           component="nav"
           variant="dense"
-          sx={{ justifyContent: 'center', overflowX: 'auto', }}>
+          sx={{ justifyContent: 'center', overflowX: 'auto', color: 'text.primary', }}>
           
           <List  sx={{marginLeft:'5px',marginRight:'5px',margin:'10px'}} >
               <NavLink  to="/"  style={{textDecoration:'none'}} className={(navData)=>(navData.isActive?'textActive':'')}>
@@ -506,7 +515,7 @@ theme={theme}
         </List>
        
       </Drawer>
-      {renderMobileMenu}
+      {renderMobileMenu(colorMode,theme)}
       {renderMenu}
     </Box>
   </ThemeProvider> 

@@ -8,8 +8,8 @@ import TextField from '@mui/material/TextField';
 // import Newsletter from "../components/Newsletter";
 // import Products from "../components/Products";
 // import Slider1 from "../components/Slider";
+import { styled, alpha, ThemeProvider, createTheme, useTheme } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
-import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import prasannapng from '../assets/images/prasannapng.png';
@@ -33,7 +33,7 @@ import { default as Slider, Settings, CustomArrowProps } from "react-slick";
 // carousel
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-
+// const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 const images = [
   {
@@ -101,7 +101,7 @@ const style = {
 
 const Home = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const theme = useTheme();
+  
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = images.length;
 
@@ -171,9 +171,14 @@ const Home = () => {
   </Modal>
   );
 
+  const theme = useTheme();
+  // const colorMode = React.useContext(ColorModeContext);
 
   return (
-    <Box style={{margin:'20px'}}>  
+    <ThemeProvider 
+theme={theme}
+>
+    <Box sx={{margin:'20px', color: 'text.primary',}}>  
     {renderForm}
       <Container maxWidth="xl" className="glass-panel" sx={{borderRadius: '20px' ,boxShadow:'3',overflow:'hidden' }}>
       {/* Top banners */}
@@ -183,11 +188,12 @@ const Home = () => {
       <Grid container alignItems="center"
        spacing={2}>
         <Grid item xs={12} sm={7}>
-          <Box >
-            <h4>Hello World!!</h4>
+          <Box sx={{ color: 'text.primary',}} >
+            <h4 color="inherit">Hello World!!</h4>
+            
             <h1 style={{fontSize: '3rem',}}>I'm Prasanna Tuladhar</h1>
             <p>Front-end Developer</p>
-          <p>Javascript | Typescript | React.js | React Native</p>
+          <p>Javascript | React.js | React Native</p>
           <Box  sx={{marginTop:'50px', flex:1, justifyContent:'left',display: 'flex' }}>
             <Button variant="outlined" onClick={handleOpen}><h3>Hire Me</h3></Button>
             <Link  component="button" sx={{display: 'flex' ,ml:5, alignItems:'center'}}
@@ -298,7 +304,7 @@ const Home = () => {
       {/* <Footer/> */}
     </Container>
       </Box>
-    
+      </ThemeProvider>
   );
 };
 

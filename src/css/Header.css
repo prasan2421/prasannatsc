@@ -5,7 +5,7 @@
 .textActive .insideActive{
     /* background-color:#f44336; */
     box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
-    color:white;
+    color:black;
     
     border: 0.2rem solid #fff;
    
@@ -31,6 +31,42 @@
     /* background-color:#d32f2f; */
    
 }
+
+.textActive .insideActive3{
+    background-color:#f44336;
+    /* box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%); */
+    color:white;
+    
+    border: 0.2rem solid white;
+   
+   
+}
+.insideActive3{
+    color:black;
+}
+
+.textActive .insideActive4{
+    background-color:#f44336;
+    /* box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%); */
+    color:white;
+    
+    border: 0.2rem solid black;
+   
+   
+}
+
+
+.logoText {
+    margin-top:5px;
+    margin-bottom: 15px;
+    
+    letter-spacing: 3px;
+    font-family: "Waterfall", cursive;
+    
+    font-size: 3rem;
+    
+        
+  }
 
 .neonText {
     margin-top:5px;
