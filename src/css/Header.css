@@ -27,9 +27,9 @@
               0 0 80px #5271ff;
 }
 
-.textActive .insideActive:hover{
+.textActive .insideActive4{
     /* background-color:#d32f2f; */
-   
+    
 }
 
 .textActive .insideActive3{
@@ -51,7 +51,7 @@
     color:white;
     
     border: 0.2rem solid black;
-   
+    display:'flex'
    
 }
 

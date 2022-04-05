@@ -423,7 +423,7 @@ theme={theme}
           <Toolbar sx={{maxWidth: 'xl', width:'100%', margin:'0 auto'}} >
             
             <Box
-            sx={{flex:1, justifyContent:'left',display: { xs: 'flex', md: 'none' }}}>
+            sx={{flex:1, justifyContent:'left',display: { xs: 'flex', md: 'none' },color: 'text.primary'}}>
            <IconButton
             
               size="large"
@@ -500,7 +500,7 @@ theme={theme}
             </Box>
             </Box>
             
-            <Box sx={{ flex:1, justifyContent:'right',display: { xs: 'flex', md: 'none' } }}>
+            <Box sx={{ flex:1, justifyContent:'right',display: { xs: 'flex', md: 'none' } ,color: 'text.primary'}}>
               <IconButton
                 size="large"
                 aria-label="show more"
@@ -572,11 +572,12 @@ theme={theme}
         <Divider />
 
         <List sx={{textAlign:'center'}} >
-            <NavLink to="/"  style={{textDecoration:'none'}} className={(navData)=>(navData.isActive?'textActive':'')}>
-              <ListItemIcon>
-                <InboxIcon sx={{flex:1}} />
+            <NavLink to="/"  style={{textDecoration:'none', }} className={(navData)=>(navData.isActive?'textActive':'')}>
+              <ListItemIcon sx={{alignItem:'center',display:'grid'}}>
+               
+                {theme.palette.mode === 'dark' ?<CustomButton3 sx={{display:'flex', flex:1}} ><Box>HOME</Box></CustomButton3>:<CustomButton4 sx={{display:'flex', flex:1}}> <Box>HOME</Box></CustomButton4>}
               </ListItemIcon >
-              {theme.palette.mode === 'dark' ?<CustomButton3 >HOME</CustomButton3>:<CustomButton4>HOME</CustomButton4>}
+              
                 
               </NavLink>
            
@@ -584,10 +585,11 @@ theme={theme}
 
         <List sx={{textAlign:'center'}} >
               <NavLink  to="/products"  style={{textDecoration:'none'}} className={(navData)=>(navData.isActive?'textActive':'')}>
-              <ListItemIcon>
-                <InboxIcon sx={{flex:1}} />
+              <ListItemIcon sx={{alignItem:'center',display:'grid'}}>
+               
+             
+              {theme.palette.mode === 'dark' ?<CustomButton3 sx={{display:'flex', flex:1}} >ABOUT ME</CustomButton3>:<CustomButton4 sx={{display:'flex', flex:1}}>ABOUT ME</CustomButton4>}
               </ListItemIcon >
-              {theme.palette.mode === 'dark' ?<CustomButton3 >ABOUT ME</CustomButton3>:<CustomButton4>ABOUT ME</CustomButton4>}
               </NavLink>
            
         </List>

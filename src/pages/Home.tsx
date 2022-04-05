@@ -180,7 +180,7 @@ theme={theme}
 >
     <Box sx={{margin:'20px', color: 'text.primary',}}>  
     {renderForm}
-      <Container maxWidth="xl" className="glass-panel" sx={{borderRadius: '20px' ,boxShadow:'3',overflow:'hidden' }}>
+      <Container maxWidth="xl" className={theme.palette.mode === 'dark' ?"glass-panel":"glass-panel2"} sx={{borderRadius: '20px' ,boxShadow:'3',overflow:'hidden' }}>
       {/* Top banners */}
       <Grid>
       <Box sx={{overflow:'hidden'}} >
