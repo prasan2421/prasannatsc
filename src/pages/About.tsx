@@ -30,6 +30,12 @@ import { autoPlay } from 'react-swipeable-views-utils';
 import { useSpring, animated } from '@react-spring/web';
 import '../css/MainStyle.css';
 import { default as Slider, Settings, CustomArrowProps } from "react-slick";
+
+
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 // carousel
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -182,120 +188,34 @@ theme={theme}
     {renderForm}
       <Container maxWidth="xl" className={theme.palette.mode === 'dark' ?"glass-panel":"glass-panel2"} sx={{borderRadius: '20px' ,boxShadow:'3',overflow:'hidden' }}>
       {/* Top banners */}
-      <Grid>
-      <Box sx={{overflow:'hidden'}} >
-        <Container maxWidth="lg" sx={{marginBottom:10}}>
-      <Grid container alignItems="center"
-       spacing={2}>
-        <Grid item xs={12} sm={7}>
-          <Box sx={{ color: 'text.primary',}} >
-            <h4 color="inherit">Hello World!!</h4>
-            
-            <h1 style={{fontSize: '3rem',}}>I'm Prasanna Tuladhar</h1>
-            <p>Front-end Developer</p>
-          <p>Javascript | React.js | React Native</p>
-          <Box  sx={{marginTop:'50px', flex:1, justifyContent:'left',display: 'flex' }}>
-            <Button variant="outlined" onClick={handleOpen}><h3>Hire Me</h3></Button>
-            <Link  component="button" sx={{display: 'flex' ,ml:5, alignItems:'center'}}
-  variant="body2"  onClick={() => {
-    console.info("I'm a button.");
-  }}><h3>Download CV</h3><FileDownloadIcon/></Link>
-          </Box>
-
-          </Box>
-        </Grid>
-        <Grid item xs={12} sm={5}>
-          <Box className="circle" style={{margin:'0 auto'}} >
-          <Box className="circle2"  alignItems="center" style={{marginTop:'10px',marginLeft:'10px'}} >
-          <img src={prasannapng} alt="Logo" height="350em" width="350em"/>
-            </Box>
-            </Box>
-        </Grid>
-      </Grid>
-      </Container>
-      {/* <Slider  className="mainSlider"
-        asNavFor={nav2}
-        ref={(slider1) => setNav2(slider1)}>
-      {images.map((step, index) => (
-              <div  style={{ borderRadius:'15px',overflow:'hidden'}} >
-                
-                  <Box
-                    component="img"
-                    sx={{
-                      maxHeight: 300,
-                      display: 'block',
-                    objectFit:'cover',
-                    
-                      width: '100%',
-                    }}
-                    src={step.imgPath}
-                    alt={step.label}
-                  />
-               
-              </div>
-            ))}
-        </Slider> */}
-          <AutoPlaySwipeableViews
-            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-            index={activeStep}
-            onChangeIndex={handleStepChange}
-            enableMouseEvents
+     
+     <Card sx={{ flex:1 }}>
+       <CardContent>
+         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+         Name: 
+         </Typography>
+         <Typography variant="h5" component="div">
+          Prasanna Tuladhar
+         </Typography>
          
-          >
-           
-            {images.map((step, index) => (
-              <div key={step.label+'1'} style={{ borderRadius:'15px',overflow:'hidden'}} >
-                {Math.abs(activeStep - index) <= 2 ? (
-                  <Box
-                    component="img"
-                    sx={{
-                      maxHeight: 300,
-                      display: 'block',
-                    objectFit:'cover',
-                    
-                      width: '100%',
-                    }}
-                    src={step.imgPath}
-                    alt={step.label}
-                  />
-                ) : null}
-              </div>
-            ))}
-          </AutoPlaySwipeableViews>
-          <MobileStepper
-         style={{ background: 'transparent', boxShadow: 'none'}}
-            steps={maxSteps}
-            position="static"
-            activeStep={activeStep}
-            nextButton={
-              <Button
-                size="small"
-                onClick={handleNext}
-                disabled={activeStep === maxSteps - 1}
-              >
-                Next
-                {theme.direction === 'rtl' ? (
-                  <KeyboardArrowLeft />
-                ) : (
-                  <KeyboardArrowRight />
-                )}
-              </Button>
-            }
-            backButton={
-              <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-                {theme.direction === 'rtl' ? (
-                  <KeyboardArrowRight />
-                ) : (
-                  <KeyboardArrowLeft />
-                )}
-                Back
-              </Button>
-            }
-          />
-      
-        </Box>
-        
-      </Grid>
+       </CardContent>
+       
+     </Card>
+     <Card sx={{ flex:1 }}>
+       <CardContent>
+         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          Education
+         </Typography>
+         <Typography variant="h5" component="div">
+          Masters in Management Information Systems (Current)
+         </Typography>
+         <Typography variant="h5" component="div">
+         Bachelor's of Science in Computer Science and Information Tenchnologies
+         </Typography>
+         
+       </CardContent>
+       
+     </Card>
         {/* Top banners end*/}
       {/* <Slider /> */}
       {/* <Categories /> */}

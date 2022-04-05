@@ -4,6 +4,8 @@ import './App.css';
 // import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 import Home from "./pages/Home";
 import ProductList from "./pages/ProductList";
+import About from "./pages/About";
+import Cart from "./pages/Cart";
 // import Navbar from "./components/Navbar";
 import {
   BrowserRouter ,
@@ -14,7 +16,7 @@ import {
 
 import logo from '../assets/images/logo.png';
 import { makeStyles } from '@mui/styles';
-
+import Product from "./pages/Product";
 import { styled, alpha, ThemeProvider, createTheme, useTheme } from '@mui/material/styles';
 import PropTypes from 'prop-types';
 import ButtonUnstyled, { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
@@ -41,6 +43,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Drawer from '@mui/material/Drawer';
 import { SwipeableDrawer } from '@mui/material';
@@ -476,13 +479,13 @@ theme={theme}
                   {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
                 </IconButton>
               </IconButton>
-              <IconButton
+              <IconButton  to="/cart"  component={NavLink} 
                 size="large"
-                aria-label="show 17 new notifications"
+                aria-label="show 4 new notifications"
                 color="inherit"
               >
                 <Badge badgeContent={17} color="error">
-                  <NotificationsIcon />
+                  <LocalMallIcon />
                 </Badge>
               </IconButton>
               <IconButton
@@ -532,6 +535,12 @@ theme={theme}
 
           <List  sx={{marginLeft:'5px',marginRight:'5px'}} >
           <NavLink  to="/products"  style={{textDecoration:'none'}} className={(navData)=>(navData.isActive?'textActive':'')}>
+          {theme.palette.mode === 'dark' ?<CustomButton3 >Products</CustomButton3>:<CustomButton4>Products</CustomButton4>}
+              </NavLink>
+          </List>
+
+          <List  sx={{marginLeft:'5px',marginRight:'5px'}} >
+          <NavLink  to="/about"  style={{textDecoration:'none'}} className={(navData)=>(navData.isActive?'textActive':'')}>
           {theme.palette.mode === 'dark' ?<CustomButton3 >ABOUT ME</CustomButton3>:<CustomButton4>ABOUT ME</CustomButton4>}
               </NavLink>
           </List>
@@ -633,7 +642,11 @@ function App() {
        <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/products" element={<ProductList/>}/>     
+        <Route path="/products" element={<ProductList/>}/>  
+        <Route path="/about" element={<About/>}/>  
+        <Route path="/cart" element={<Cart/>}/>  
+        <Route path="/product/:id" element={<Product/>}/>
+          
       </Routes>
     </BrowserRouter>
     </ThemeProvider>
