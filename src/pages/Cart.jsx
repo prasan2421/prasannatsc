@@ -141,9 +141,7 @@ const ProductList = () => {
          </Typography>
          
        </CardContent>
-       <CardActions>
-         <Button size="small">Add to Cart</Button>
-       </CardActions>
+      
      </Card>
         // <Product item={item} key={item.id} />
       ))}
@@ -154,7 +152,7 @@ const ProductList = () => {
 
     {/* <Products/> */}
       {/* <Newsletter /> */}
-     
+      <Footer />
     </Container>
   );
 };

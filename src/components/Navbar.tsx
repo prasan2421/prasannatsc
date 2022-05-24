@@ -2,34 +2,25 @@
 // import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 // import React from "react";
 import * as React from 'react';
-import { useState } from "react";
+import { useState,useContext } from "react";
 // import styled from "styled-components";
 
 // import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import logo from '../assets/images/logo.png';
-import { makeStyles } from '@mui/styles';
 
 import { styled, alpha, ThemeProvider, createTheme, useTheme } from '@mui/material/styles';
 import PropTypes from 'prop-types';
 import ButtonUnstyled, { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
-
-import Stack from '@mui/material/Stack';
-
-import { red } from '@mui/material/colors';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
+
+import {Toolbar,Box} from '@mui/material';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -41,21 +32,22 @@ import Drawer from '@mui/material/Drawer';
 import { SwipeableDrawer } from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
 import Divider from '@mui/material/Divider';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import '../css/Header.css';
 import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
 
-const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
+import { ColorModeContext } from '../constants/color-context';
+
+
+
 const drawerWidth = 240;
+
+
 
 function ElevationScroll(props:any) {
   const { children, window } = props;
@@ -82,15 +74,14 @@ const blue2 = {
   700: '#0059B2',
 };
 
-
-const CustomButtonRoot2 = styled('span')(
+const CustomButtonRoot3 = styled('span')(
   ({ theme }) => `
   font-family: IBM Plex Sans, sans-serif;
   
   font-weight: bold;
   font-size: 0.875rem;
   border: 0.2rem solid rgba(0, 0, 0, 0);
-  padding: 0.5rem 1.5rem;
+  padding: 0.7rem 1.5rem;
   border-radius: 8px;
   color: white;
   transition: all 150ms ease;
@@ -102,21 +93,7 @@ const CustomButtonRoot2 = styled('span')(
     color: white;
     border: 0.2rem solid #fff;
    
-    box-shadow: 0 0 .2rem #fff,
-    0 0 .2rem #fff,
-    0 0 0.5rem #bc13fe,
-    0 0 0.7rem #bc13fe,
-    0 0 0.9rem #bc13fe,
-    inset 0 0 0.8rem #bc13fe; 
-    text-shadow:
-    0 0 0.5px #fff,
-    0 0 1px #fff,
-    0 0 1.5px #fff,
-    0 0 30px #5271ff,
-    0 0 50px #5271ff,
-    0 0 60px #5271ff,
-    0 0 70px #5271ff,
-    0 0 80px #5271ff;
+   
 }
   }
 
@@ -135,24 +112,43 @@ const CustomButtonRoot2 = styled('span')(
   }
 `,);
 
-function CustomButton2(props:any) {
-  return (
+const CustomButtonRoot4 = styled('span')(
+  ({ theme }) => `
+  font-family: IBM Plex Sans, sans-serif;
   
-  <CustomButtonRoot2  {...props} className={'insideActive'}  />
+  font-weight: bold;
+  font-size: 0.875rem;
+  border: 0.2rem solid white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  color: black;
+  transition: all 150ms ease;
+  cursor: pointer;
   
-  )}
 
-const useStyles = makeStyles(theme =>({
-  activeList: {
-    "&.active": {
-      background:'red',
-    }
-  },
-}));
-
-interface AppBarProps extends MuiAppBarProps {
-  open?: boolean;
+  &:hover {
+    
+    color: black;
+    border: 0.2rem solid #000;
+   
+   
 }
+  }
+
+  &.${buttonUnstyledClasses.active} {
+    background-color: ${blue2[700]};
+  }
+
+  &.${buttonUnstyledClasses.focusVisible} {
+    box-shadow: 0 4px 20px 0 rgba(61, 71, 82, 0.1), 0 0 0 5px rgba(0, 127, 255, 0.5);
+    outline: none;
+  }
+
+  &.${buttonUnstyledClasses.disabled} {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+`,);
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -181,7 +177,31 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 
-const Navbar = (props:any) => {
+function CustomButton3(props:any) {
+    return (
+    
+    <CustomButtonRoot3 {...props} className={'insideActive3'}  />
+    
+    )}
+
+function CustomButton4(props:any) {
+      return (
+      
+      <CustomButtonRoot4 {...props} className={'insideActive4'}  />
+      
+      )}
+
+
+interface AppBarProps extends MuiAppBarProps {
+  open?: boolean;
+}
+
+
+
+const Navbar= (props:any) => {
+  const theme = useTheme();
+  
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -198,7 +218,6 @@ const Navbar = (props:any) => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
 
   const handleProfileMenuOpen = (event:any) => {
     setAnchorEl(event.currentTarget);
@@ -299,41 +318,10 @@ const Navbar = (props:any) => {
     </Menu>
   );
 
-  const matches = useMediaQuery('(min-width:600px)');
-  const [homeStyle, setHomeStyle] = useState(false);
-  const classes = useStyles();
-  
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-
-  
-
-  const [mode, setMode] = React.useState<'light' | 'dark'>('dark');
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode,
-        },
-      }),
-    [mode],
-  );
-  const colorMode = React.useMemo(
-    () => ({
-      toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
-      },
-    }),
-    [],
-  );
-
-  
-  
+  const colorMode = React.useContext(ColorModeContext);
 
 return (
-  <ColorModeContext.Provider value={colorMode}>
-<ThemeProvider 
-theme={theme}
->
+  
 
     <Box sx={{ display:'flex', overflow:'hidden' , }}>
     <CssBaseline />
@@ -344,11 +332,13 @@ theme={theme}
         >
         
           <Toolbar sx={{maxWidth: 'xl', width:'100%', margin:'0 auto'}} >
-            
+
+
+            {/* ----------- ------------------------ Left ------------------  ----------------- */}
+ 
             <Box
-            sx={{flex:1, justifyContent:'left',display: { xs: 'flex', md: 'none' }}}>
+            sx={{flex:1, justifyContent:'left',display: { xs: 'flex', md: 'none' },color: 'text.primary'}}>
            <IconButton
-            
               size="large"
               edge="start"
               color="inherit"
@@ -380,32 +370,42 @@ theme={theme}
             
           </IconButton>
               </Box>
-            <Box
+               {/* ----------- ------------------- Left End --------------------- ----------------- */}
+
+
+              {/* ----------- --------------------- Main Logo ------------------ ----------------- */}
+
+
+            <Box 
              
               sx={{ flex: 1, textAlign:'center',margin:'10px',color: 'text.primary',}}
             >
              
-              {/* <h1 className="neonText"> */}
-              <h1 className={theme.palette.mode === 'dark' ? "neonText":"logoText"}>
+              <h1 className="logoText">
+              {/* <h1 className={theme.palette.mode === 'dark' ? "neonText":"logoText"}> */}
               Prasanna  Tuladhar
               </h1>
             </Box>
+
+            {/* ----------- --------------------- Main Logo End -------------------- ---------------- */}
+
+            {/* ----------- ------------------------ Right ------------------  ---------------------- */}
             
           <Box  sx={{ flex:1, justifyContent:'right', display: { xs: 'none', md: 'flex' }, color: 'text.primary', }}>
             <Box>
             
-              <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+              <IconButton size="large" aria-label="show 4 new mails" color="inherit" onClick={colorMode.toggleColorMode}>
+               
                   {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-                </IconButton>
+               
               </IconButton>
-              <IconButton
+              <IconButton  to="/cart"  component={NavLink} 
                 size="large"
-                aria-label="show 17 new notifications"
+                aria-label="show 4 new notifications"
                 color="inherit"
               >
                 <Badge badgeContent={17} color="error">
-                  <NotificationsIcon />
+                  <LocalMallIcon />
                 </Badge>
               </IconButton>
               <IconButton
@@ -422,8 +422,11 @@ theme={theme}
   
             </Box>
             </Box>
+
+             
+
             
-            <Box sx={{ flex:1, justifyContent:'right',display: { xs: 'flex', md: 'none' } }}>
+        <Box sx={{ flex:1, justifyContent:'right',display: { xs: 'flex', md: 'none' } ,color: 'text.primary'}}>
               <IconButton
                 size="large"
                 aria-label="show more"
@@ -434,37 +437,47 @@ theme={theme}
               >
                 <MoreIcon />
               </IconButton>
-            </Box>
+        </Box>
            
-          </Toolbar>
-          {matches ?
+          {/* ----------- ------------------- Right End --------------------- ------------------------ */}
 
-          // Navigation bar
 
-          <Toolbar 
+        </Toolbar>
+
+           {/* ----------- ------------------- Navigation bar --------------------- -----------------  */}
+         
+          
+          
+        <Toolbar 
+        
           component="nav"
           variant="dense"
-          sx={{ justifyContent: 'center', overflowX: 'auto', color: 'text.primary', }}>
+          sx={{ justifyContent: 'center', overflowX: 'auto', color: 'text.primary', display: { xs: 'none', md: 'flex' } }}>
           
           <List  sx={{marginLeft:'5px',marginRight:'5px',margin:'10px'}} >
               <NavLink  to="/"  style={{textDecoration:'none'}} className={(navData)=>(navData.isActive?'textActive':'')}>
-                <CustomButton2 >HOME</CustomButton2>
+              {theme.palette.mode === 'dark' ?<CustomButton3 >HOME</CustomButton3>:<CustomButton4>HOME</CustomButton4>}
               </NavLink>
               
           </List>
 
           <List  sx={{marginLeft:'5px',marginRight:'5px'}} >
           <NavLink  to="/products"  style={{textDecoration:'none'}} className={(navData)=>(navData.isActive?'textActive':'')}>
-                <CustomButton2 >About Me</CustomButton2>
+          {theme.palette.mode === 'dark' ?<CustomButton3 >Products</CustomButton3>:<CustomButton4>Products</CustomButton4>}
+              </NavLink>
+          </List>
+
+          <List  sx={{marginLeft:'5px',marginRight:'5px'}} >
+          <NavLink  to="/about"  style={{textDecoration:'none'}} className={(navData)=>(navData.isActive?'textActive':'')}>
+          {theme.palette.mode === 'dark' ?<CustomButton3 >ABOUT ME</CustomButton3>:<CustomButton4>ABOUT ME</CustomButton4>}
               </NavLink>
           </List>
         
         
-            </Toolbar>
+          </Toolbar>
             
-            // Navigation bar end
-            
-            :null}
+
+             {/* ----------- ------------------- Navigation bar End --------------------- -----------------  */}
         </AppBar>
       </ElevationScroll>
       <Toolbar />
@@ -495,21 +508,24 @@ theme={theme}
         <Divider />
 
         <List sx={{textAlign:'center'}} >
-            <NavLink to="/"  style={{textDecoration:'none'}} className={(navData)=>(navData.isActive?'textActive':'')}>
-              <ListItemIcon>
-                <InboxIcon sx={{flex:1}} />
+            <NavLink to="/"  style={{textDecoration:'none', }} className={(navData)=>(navData.isActive?'textActive':'')}>
+              <ListItemIcon sx={{alignItem:'center',display:'grid'}}>
+               
+                {theme.palette.mode === 'dark' ?<CustomButton3 sx={{display:'flex', flex:1}} ><Box>HOME</Box></CustomButton3>:<CustomButton4 sx={{display:'flex', flex:1}}> <Box>HOME</Box></CustomButton4>}
               </ListItemIcon >
-                <CustomButton2 >HOME</CustomButton2>
+              
+                
               </NavLink>
            
         </List>
 
         <List sx={{textAlign:'center'}} >
               <NavLink  to="/products"  style={{textDecoration:'none'}} className={(navData)=>(navData.isActive?'textActive':'')}>
-              <ListItemIcon>
-                <InboxIcon sx={{flex:1}} />
+              <ListItemIcon sx={{alignItem:'center',display:'grid'}}>
+               
+             
+              {theme.palette.mode === 'dark' ?<CustomButton3 sx={{display:'flex', flex:1}} >ABOUT ME</CustomButton3>:<CustomButton4 sx={{display:'flex', flex:1}}>ABOUT ME</CustomButton4>}
               </ListItemIcon >
-                <CustomButton2 >About Me</CustomButton2>
               </NavLink>
            
         </List>
@@ -518,8 +534,7 @@ theme={theme}
       {renderMobileMenu(colorMode,theme)}
       {renderMenu}
     </Box>
-  </ThemeProvider> 
-  </ColorModeContext.Provider>
+ 
   );
 };
 
