@@ -1,8 +1,15 @@
 .top-to-btm{
-    position: relative;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  justify-content: flex-end;
+  display: flex;
+  z-index: 1000000;
+  width: 100%;
+
   }
   .icon-position{
-    position: fixed;
+   
     bottom: 40px;
     right: 25px;
     z-index: 20;

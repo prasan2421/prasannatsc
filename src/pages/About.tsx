@@ -25,8 +25,7 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
+
 import { useSpring, animated } from '@react-spring/web';
 import '../css/MainStyle.css';
 import { default as Slider, Settings, CustomArrowProps } from "react-slick";
@@ -36,10 +35,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-// carousel
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-// const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 const images = [
   {
@@ -182,11 +178,11 @@ const Home = () => {
 
   return (
     <ThemeProvider 
-theme={theme}
+theme={theme} 
 >
     <Box sx={{margin:'20px', color: 'text.primary',}}>  
     {renderForm}
-      <Container maxWidth="xl" className={theme.palette.mode === 'dark' ?"glass-panel":"glass-panel2"} sx={{borderRadius: '20px' ,boxShadow:'3',overflow:'hidden' }}>
+      <Container maxWidth="xl" className={theme.palette.mode === 'dark' ?"glass-panel":"glass-panel2"} sx={{ display:'flex', justifyContent:'center', alignItems:'center', borderRadius: '20px' ,boxShadow:'3',overflow:'hidden' }}>
       {/* Top banners */}
      
      <Card sx={{ flex:1 }}>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import '../css/goTopStyle.css';
-import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import Fab from '@mui/material/Fab';
 const GoTop = () => {
     const [showTopBtn, setShowTopBtn] = useState(false);
 
@@ -26,8 +27,11 @@ const GoTop = () => {
         <div className="top-to-btm">
             
             {showTopBtn && (
-        <ArrowCircleUpIcon fontSize="large" className="icon-position icon-style"
-        onClick={goToTop}/>
+                <Fab size="small" color="primary" aria-label="add"  onClick={goToTop}>
+                <ArrowUpwardIcon />
+              </Fab>
+        // <ArrowCircleUpIcon fontSize="large" className="icon-position icon-style"
+        // onClick={goToTop}/>
         )}
     </div>
     );

@@ -42,7 +42,7 @@ const Payment = styled.img`
 
 const Footer = () => {
   return (
-    <Container maxWidth="xl" >
+    <Container maxWidth={false} >
       <Box sx={{ color: 'text.primary',display:'flex', justifyContent:"center"}}>
         <Box sx={{fontSize:'44px', fontWeight:'bold', margin:'20px'}}>Let's talk</Box>
 

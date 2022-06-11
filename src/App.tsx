@@ -7,7 +7,12 @@ import ProductList from "./pages/ProductList";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
 import { ColorModeContext } from './constants/color-context';
+import CssBaseline from '@mui/material/CssBaseline';
+import {Toolbar,Box} from '@mui/material';
+import SimpleBar from 'simplebar-react';
+import 'simplebar-react/dist/simplebar.min.css';
 // import Navbar from "./components/Navbar";
+import { amber, deepOrange, grey } from '@mui/material/colors';
 import {
   BrowserRouter ,
   Routes,
@@ -22,8 +27,8 @@ import { styled, alpha, ThemeProvider, createTheme, useTheme } from '@mui/materi
 
 import './css/Header.css';
 
-
 import Navbar from "./components/Navbar";
+import Drawer from "./components/DrawerNav";
 import Footer from "./components/Footer";
 
 // const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
@@ -47,30 +52,48 @@ function App() {
       createTheme({
         palette: {
           mode,
+          ...(mode === "dark" && {
+            background: {
+              default: '#1d1d1d',
+              paper: '#181818',
+             
+            },
+           
+          }),
+         
         },
       }), 
     [mode],
   );
 
   return (
+   
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
-    <BrowserRouter>
-    
-      <GoTop />
-      <Navbar/>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/products" element={<ProductList/>}/>  
-        <Route path="/about" element={<About/>}/>  
-        <Route path="/cart" element={<Cart/>}/>  
-        <Route path="/product/:id" element={<Product/>}/>
-          
-      </Routes>
-      <Footer/>
-    </BrowserRouter>
+      <SimpleBar style={{ height: 'calc(100% - 6rem)'}}>
+            <BrowserRouter>
+              <Box sx={{ display: 'flex'}}>
+                <CssBaseline />
+              <GoTop />
+              
+              <Navbar/>
+              <Drawer/>
+              <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/projects" element={<ProductList/>}/>  
+                <Route path="/about" element={<About/>}/>  
+                <Route path="/cart" element={<Cart/>}/>  
+                <Route path="/project/:id" element={<Product/>}/>
+                  
+              </Routes>
+              {/* <Footer/> */}
+              </Box>
+          </BrowserRouter>    
+          </SimpleBar>
     </ThemeProvider>
     </ColorModeContext.Provider>
+    
+    
   );
 }
 

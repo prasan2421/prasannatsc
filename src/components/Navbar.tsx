@@ -14,7 +14,7 @@ import ButtonUnstyled, { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled'
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-
+import Container from '@mui/material/Container';
 import {Toolbar,Box} from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
@@ -23,9 +23,7 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import Zoom from '@mui/material/Zoom';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Drawer from '@mui/material/Drawer';
@@ -40,33 +38,19 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import '../css/Header.css';
 import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-
+import Brightness1Icon from '@mui/icons-material/Brightness1';
 import { ColorModeContext } from '../constants/color-context';
 
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
 
 
-const drawerWidth = 240;
+
+const drawerWidth = 200;
 
 
-
-function ElevationScroll(props:any) {
-  const { children, window } = props;
- 
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-    target: window ? window() : undefined,
-  });
-
-  return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0,
-  });
-}
-
-ElevationScroll.propTypes = {
-  children: PropTypes.element.isRequired,
-  window: PropTypes.func,
-};
 
 const blue2 = {
   500: '#007FFF',
@@ -80,36 +64,23 @@ const CustomButtonRoot3 = styled('span')(
   
   font-weight: bold;
   font-size: 0.875rem;
-  border: 0.2rem solid rgba(0, 0, 0, 0);
-  padding: 0.7rem 1.5rem;
-  border-radius: 8px;
-  color: white;
+  // border: 0.2rem solid rgba(0, 0, 0, 0);
+  // padding: 0.7rem 1.5rem;
+  // border-radius: 8px;
+  // color: white;
   transition: all 150ms ease;
   cursor: pointer;
   
 
-  &:hover {
+//   &:hover {
     
-    color: white;
-    border: 0.2rem solid #fff;
+//     color: white;
+//     border: 0.2rem solid #fff;
    
    
-}
+// }
   }
 
-  &.${buttonUnstyledClasses.active} {
-    background-color: ${blue2[700]};
-  }
-
-  &.${buttonUnstyledClasses.focusVisible} {
-    box-shadow: 0 4px 20px 0 rgba(61, 71, 82, 0.1), 0 0 0 5px rgba(0, 127, 255, 0.5);
-    outline: none;
-  }
-
-  &.${buttonUnstyledClasses.disabled} {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
 `,);
 
 const CustomButtonRoot4 = styled('span')(
@@ -198,7 +169,9 @@ interface AppBarProps extends MuiAppBarProps {
 
 
 
+
 const Navbar= (props:any) => {
+  const [checked, setChecked] = React.useState(true);
   const theme = useTheme();
   
 
@@ -319,79 +292,24 @@ const Navbar= (props:any) => {
   );
 
   const colorMode = React.useContext(ColorModeContext);
+  
 
 return (
   
 
-    <Box sx={{ display:'flex', overflow:'hidden' , }}>
-    <CssBaseline />
-      <ElevationScroll {...props}>
-        <AppBar position="relative" open={open} style={{ background: 'transparent', boxShadow: 'none'}}
+  <>
+      
+        <AppBar position="fixed" sx={{ background: 'transparent', boxShadow: 'none', width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
         // color="dark"  
         // enableColorOnDark
         >
         
-          <Toolbar sx={{maxWidth: 'xl', width:'100%', margin:'0 auto'}} >
+          <Toolbar>
 
-
-            {/* ----------- ------------------------ Left ------------------  ----------------- */}
- 
-            <Box
-            sx={{flex:1, justifyContent:'left',display: { xs: 'flex', md: 'none' },color: 'text.primary'}}>
-           <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              sx={{  ...(open && { display: 'none' }) }}
-              onClick={handleDrawerOpen}
-              
-            >
-              <MenuIcon />
-            </IconButton>
-            
-            
-            </Box>
-            <Box sx={{flex:1, justifyContent:'left',display: { xs: 'none', md: 'flex' },  color: 'text.primary',}}>
-            
-              <IconButton size="large" aria-label="facebook" color="inherit">
-              
-                  <FacebookIcon />
-                
-              </IconButton>
-              <IconButton size="large" aria-label="Twitter" color="inherit">
-              
-                  <InstagramIcon />
-                
-              </IconButton>
-              <IconButton size="large" aria-label="Instagram" color="inherit">
-              
-              <TwitterIcon />
-            
-          </IconButton>
-              </Box>
-               {/* ----------- ------------------- Left End --------------------- ----------------- */}
-
-
-              {/* ----------- --------------------- Main Logo ------------------ ----------------- */}
-
-
-            <Box 
-             
-              sx={{ flex: 1, textAlign:'center',margin:'10px',color: 'text.primary',}}
-            >
-             
-              <h1 className="logoText">
-              {/* <h1 className={theme.palette.mode === 'dark' ? "neonText":"logoText"}> */}
-              Prasanna  Tuladhar
-              </h1>
-            </Box>
-
-            {/* ----------- --------------------- Main Logo End -------------------- ---------------- */}
 
             {/* ----------- ------------------------ Right ------------------  ---------------------- */}
-            
-          <Box  sx={{ flex:1, justifyContent:'right', display: { xs: 'none', md: 'flex' }, color: 'text.primary', }}>
+           
+          <Box  sx={{  flex:1, justifyContent:'right', display: { xs: 'none', md: 'flex' }, color: 'text.primary', }}>
             <Box>
             
               <IconButton size="large" aria-label="show 4 new mails" color="inherit" onClick={colorMode.toggleColorMode}>
@@ -425,116 +343,36 @@ return (
 
              
 
+            <Box
+            sx={{flex:1,justifyContent:'right',display: { xs: 'flex', md: 'none' },color: 'text.primary'}}>
+           <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="open drawer"
+              sx={{  ...(open && { display: 'none' }) }}
+              // onClick={menuMode.toggleMenuMode}
+              
+            >
+              <MenuIcon />
+            </IconButton>
             
-        <Box sx={{ flex:1, justifyContent:'right',display: { xs: 'flex', md: 'none' } ,color: 'text.primary'}}>
-              <IconButton
-                size="large"
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
-                color="inherit"
-              >
-                <MoreIcon />
-              </IconButton>
-        </Box>
+            
+            </Box>   
+       
            
           {/* ----------- ------------------- Right End --------------------- ------------------------ */}
-
-
         </Toolbar>
-
-           {/* ----------- ------------------- Navigation bar --------------------- -----------------  */}
-         
-          
-          
-        <Toolbar 
         
-          component="nav"
-          variant="dense"
-          sx={{ justifyContent: 'center', overflowX: 'auto', color: 'text.primary', display: { xs: 'none', md: 'flex' } }}>
-          
-          <List  sx={{marginLeft:'5px',marginRight:'5px',margin:'10px'}} >
-              <NavLink  to="/"  style={{textDecoration:'none'}} className={(navData)=>(navData.isActive?'textActive':'')}>
-              {theme.palette.mode === 'dark' ?<CustomButton3 >HOME</CustomButton3>:<CustomButton4>HOME</CustomButton4>}
-              </NavLink>
-              
-          </List>
-
-          <List  sx={{marginLeft:'5px',marginRight:'5px'}} >
-          <NavLink  to="/products"  style={{textDecoration:'none'}} className={(navData)=>(navData.isActive?'textActive':'')}>
-          {theme.palette.mode === 'dark' ?<CustomButton3 >Products</CustomButton3>:<CustomButton4>Products</CustomButton4>}
-              </NavLink>
-          </List>
-
-          <List  sx={{marginLeft:'5px',marginRight:'5px'}} >
-          <NavLink  to="/about"  style={{textDecoration:'none'}} className={(navData)=>(navData.isActive?'textActive':'')}>
-          {theme.palette.mode === 'dark' ?<CustomButton3 >ABOUT ME</CustomButton3>:<CustomButton4>ABOUT ME</CustomButton4>}
-              </NavLink>
-          </List>
-        
-        
-          </Toolbar>
-            
-
-             {/* ----------- ------------------- Navigation bar End --------------------- -----------------  */}
         </AppBar>
-      </ElevationScroll>
-      <Toolbar />
-      <Drawer
-        sx={{
         
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: drawerWidth,
-            boxSizing: 'border-box',
-            top:10,
-            left:9,
-            bottom:10,
-            // backgroundColor:'#4e1e1e',
-          },
-        }}
-        variant="persistent"
-        anchor="left"
-        open={open}
-      >
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
+      
         
-        <Divider />
-
-        <List sx={{textAlign:'center'}} >
-            <NavLink to="/"  style={{textDecoration:'none', }} className={(navData)=>(navData.isActive?'textActive':'')}>
-              <ListItemIcon sx={{alignItem:'center',display:'grid'}}>
-               
-                {theme.palette.mode === 'dark' ?<CustomButton3 sx={{display:'flex', flex:1}} ><Box>HOME</Box></CustomButton3>:<CustomButton4 sx={{display:'flex', flex:1}}> <Box>HOME</Box></CustomButton4>}
-              </ListItemIcon >
-              
-                
-              </NavLink>
-           
-        </List>
-
-        <List sx={{textAlign:'center'}} >
-              <NavLink  to="/products"  style={{textDecoration:'none'}} className={(navData)=>(navData.isActive?'textActive':'')}>
-              <ListItemIcon sx={{alignItem:'center',display:'grid'}}>
-               
-             
-              {theme.palette.mode === 'dark' ?<CustomButton3 sx={{display:'flex', flex:1}} >ABOUT ME</CustomButton3>:<CustomButton4 sx={{display:'flex', flex:1}}>ABOUT ME</CustomButton4>}
-              </ListItemIcon >
-              </NavLink>
-           
-        </List>
-       
-      </Drawer>
       {renderMobileMenu(colorMode,theme)}
       {renderMenu}
-    </Box>
- 
+
+      </>
+      
   );
 };
 
