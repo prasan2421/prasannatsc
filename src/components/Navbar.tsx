@@ -40,13 +40,13 @@ import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Brightness1Icon from '@mui/icons-material/Brightness1';
 import { ColorModeContext } from '../constants/color-context';
-
+import { RootStateOrAny, useSelector, useDispatch } from 'react-redux'
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 
-
+import { actions } from '../redux/counterSlice';
 
 const drawerWidth = 200;
 
@@ -171,7 +171,9 @@ interface AppBarProps extends MuiAppBarProps {
 
 
 const Navbar= (props:any) => {
+  const dispatch = useDispatch()
   const [checked, setChecked] = React.useState(true);
+  
   const theme = useTheme();
   
 
@@ -293,7 +295,21 @@ const Navbar= (props:any) => {
 
   const colorMode = React.useContext(ColorModeContext);
   
+  // const toggleDrawer =
+  // (anchor: 'top', open: boolean) =>
+  // (event: React.KeyboardEvent | React.MouseEvent) => {
+  //   if (
+  //     event.type === 'keydown' &&
+  //     ((event as React.KeyboardEvent).key === 'Tab' ||
+  //       (event as React.KeyboardEvent).key === 'Shift')
+  //   ) {
+  //     return;
+  //   }
 
+  //   setState({ ...state, [anchor]: open });
+  // };
+
+ 
 return (
   
 
@@ -351,7 +367,9 @@ return (
               color="inherit"
               aria-label="open drawer"
               sx={{  ...(open && { display: 'none' }) }}
-              // onClick={menuMode.toggleMenuMode}
+              // onClick={toggleDrawer('top', true)}
+              onClick={() => dispatch(actions.increment())}
+              // onClick={() => alert('fsdfs')}
               
             >
               <MenuIcon />

@@ -34,6 +34,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import List from '@mui/material/List';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import Divider from '@mui/material/Divider';
+
 import useMediaQuery from '@mui/material/useMediaQuery';
 import '../css/Header.css';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -44,18 +45,21 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
-
+import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+import { RootStateOrAny, useSelector, useDispatch } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../redux/hooks'
+import { actions } from '../redux/counterSlice';
 
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 
 
-
 const drawerWidth = 150;
 const drawerWidthFull = '100%';
 
-type Anchor = 'top' ;
+
+
 
 
 
@@ -86,7 +90,7 @@ const DrawerNav= (props:any) => {
   const theme = useTheme();
   
   const toggleDrawer =
-  (anchor: Anchor, open: boolean) =>
+  (anchor: 'top', open: boolean) =>
   (event: React.KeyboardEvent | React.MouseEvent) => {
     if (
       event.type === 'keydown' &&
@@ -109,72 +113,132 @@ const DrawerNav= (props:any) => {
   const menuId = 'primary-search-account-menu';
   
 
-  const drawerContentWeb=(
-
-<>
-<Box sx={{  padding:'20px', height:'7rem'}}>
-            
-            <h1 className="logoText">
-              {/* <h1 className={theme.palette.mode === 'dark' ? "neonText":"logoText"}> */}
-              Prasanna
-              </h1>
-              <h1 className="logoText" style={{marginLeft:'20px'}}>
-              {/* <h1 className={theme.palette.mode === 'dark' ? "neonText":"logoText"}> */}
-             Tuladhar
-              </h1>
-        </Box>
-              
-       
-        <List>
-          {navData.map((text, index) => (
-            <>
-             <Divider />
-            <ListItem key={index} disablePadding>
+  const drawerContentWeb=(colorMode:any)=>{
+    
+    return(
+      <Box sx={{height:'100vh', justifyContent:'space-between', display:'flex', flexDirection:'column'}}>
+      <Box sx={{  padding:'20px', height:'7rem', display:{xs:'flex', md:'block'}, justifyContent:'center'}}>
+                  
+                  <h1 className="logoText">
+                    {/* <h1 className={theme.palette.mode === 'dark' ? "neonText":"logoText"}> */}
+                    Prasanna
+                    </h1>
+                    <h1 className="logoText" style={{marginLeft:'20px'}}>
+                    {/* <h1 className={theme.palette.mode === 'dark' ? "neonText":"logoText"}> */}
+                   Tuladhar
+                    </h1>
+              </Box>
+                    
              
-              <NavLink  to={`${text.link}`}  style={{textDecoration:'none',fontSize:'18px',width:'100%',color:'inherit'}} className={(navData)=>(navData.isActive?'textActive':'textInactive')}>
-         
-              <ListItemButton style={{justifyContent:'space-between',}}>
-                  <Box>{text.title}</Box>
-                  <NavLink  to={`${text.link}`} style={{textDecoration:'none',}} className={(navData)=>(navData.isActive?'dotActive':'dotInactive')}>
-                    <Brightness1Icon style={{fontSize:'14px'}}/>
-                  </NavLink>
-
-            </ListItemButton>
-            </NavLink>
-            
-            </ListItem>
-             
-             </>
-          ))}
-          <Divider />
-        </List>
+              <List>
+              <Box
+                  sx={{justifyContent:'center',display: { xs: 'flex', md: 'none' },color: 'text.primary',marginBottom:'2rem'}}>
+                 <IconButton
+                    
+                    edge="start"
+                    color="inherit"
+                    aria-label="close drawer"
+                   
+                    // onClick={toggleDrawer('top', true)}
+                    onClick={() => dispatch(actions.decrement())}
+                    // onClick={() => alert('fsdfs')}
+                    
+                  >
+                    <CancelOutlinedIcon fontSize='large'/>
+                  </IconButton>
+                  
+                  
+                  </Box> 
+                  <Box  sx={{  justifyContent:'center', display: { xs: 'flex', md: 'none' }, color: 'text.primary', }}>
+                  <Box>
+                  
+                    <IconButton size="large" aria-label="show 4 new mails" color="inherit"
+                     onClick={colorMode.toggleColorMode}
+                     >
+                     
+                        {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                     
+                    </IconButton>
+                    <IconButton  to="/cart"  component={NavLink} 
+                      size="large"
+                      aria-label="show 4 new notifications"
+                      color="inherit"
+                    >
+                      <Badge badgeContent={17} color="error">
+                        <LocalMallIcon />
+                      </Badge>
+                    </IconButton>
+                    <IconButton
+                      size="large"
+                      aria-label="show 17 new notifications"
+                      // onClick={handleProfileMenuOpen}
+                      color="inherit"
+                    >
+                      <Badge badgeContent={17} color="error">
+                      <AccountCircle />
+                      </Badge>
+                    </IconButton>
+                    
         
-        <Box sx={{  color: 'text.primary'}} className='socialButton'>
-                
-                <IconButton size="large" aria-label="facebook" color="inherit">
-                
-                    <FacebookIcon />
+                  </Box>
+                  </Box>
+                {navData.map((text, index) => (
+                  <>
+                   <Divider />
+                  <ListItem key={index} disablePadding>
+                   
+                    <NavLink onClick={() => dispatch(actions.decrement())} to={`${text.link}`}  style={{textDecoration:'none',fontSize:'18px',width:'100%',color:'inherit'}} className={(navData)=>(navData.isActive?'textActive':'textInactive')}>
+               
+                    <ListItemButton style={{justifyContent:'space-between',}}>
+                        <Box>{text.title}</Box>
+                        <NavLink  to={`${text.link}`} style={{textDecoration:'none',}} className={(navData)=>(navData.isActive?'dotActive':'dotInactive')}>
+                          <Brightness1Icon style={{fontSize:'14px'}}/>
+                        </NavLink>
+      
+                  </ListItemButton>
+                  </NavLink>
                   
-                </IconButton>
-                <IconButton size="large" aria-label="Twitter" color="inherit">
+                  </ListItem>
+                   
+                   </>
+                ))}
+                <Divider />
                 
-                    <InstagramIcon />
-                  
-                </IconButton>
-                <IconButton size="large" aria-label="Instagram" color="inherit">
-                
-                <TwitterIcon />
+              </List>
               
-            </IconButton>
-                </Box>
-</>
-  )
+              <Box sx={{  color: 'text.primary', display:'flex', justifyContent:'center'}} className='socialButton'>
+                      
+                      <IconButton size="large" aria-label="facebook" color="inherit">
+                      
+                          <FacebookIcon />
+                        
+                      </IconButton>
+                      <IconButton size="large" aria-label="Twitter" color="inherit">
+                      
+                          <InstagramIcon />
+                        
+                      </IconButton>
+                      <IconButton size="large" aria-label="Instagram" color="inherit">
+                      
+                      <TwitterIcon />
+                    
+                  </IconButton>
+                      </Box>
+      </Box>
+    )
+  }
+
+   
+
+   
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
 
+  const toggle = useAppSelector((state:any) => state.counter.value)
+  const dispatch = useAppDispatch()
 
-
-
+  const colorMode = React.useContext(ColorModeContext);
+  
 return (
   
 
@@ -195,16 +259,21 @@ return (
         variant="permanent"
         anchor="left"
       >
-         {drawerContentWeb}
+         {drawerContentWeb(colorMode)}
       </Drawer>
       <Drawer
+       className='drawerStyleSmall'
+       sx={{
+        display: { xs: 'flex', md: 'none' },
+       
+      }}
             anchor={'top'}
-            open={state['top']}
-            onClose={toggleDrawer('top', false)}
+            open={toggle}
+            onClose={() => dispatch(actions.decrement())}
           >
           
          
-{drawerContentWeb}
+{drawerContentWeb(colorMode)}
       </Drawer>
         
       {/* --------------------------- full width drawer ------------------------------ */}

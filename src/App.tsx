@@ -7,10 +7,12 @@ import ProductList from "./pages/ProductList";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
 import { ColorModeContext } from './constants/color-context';
+
 import CssBaseline from '@mui/material/CssBaseline';
 import {Toolbar,Box} from '@mui/material';
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
+
 // import Navbar from "./components/Navbar";
 import { amber, deepOrange, grey } from '@mui/material/colors';
 import {

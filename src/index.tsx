@@ -5,19 +5,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './constants/theme';
+import {Provider} from 'react-redux';
+import store from './redux/store';
 
-import { Provider } from 'react-redux'
-// import store from './redux/store'
+
 
 ReactDOM.render(
-  // <Provider store={store}>
-    <ThemeProvider theme={theme} >
-      <React.StrictMode>
-        
-        <App />
-      </React.StrictMode>
-    </ThemeProvider>,
-  // </Provider>,
+  <Provider store={store}>
+  <ThemeProvider theme={theme} >
+    <React.StrictMode>
+      
+      <App />
+    </React.StrictMode>
+  </ThemeProvider>
+  </Provider>,
   document.getElementById('root')
 );
 

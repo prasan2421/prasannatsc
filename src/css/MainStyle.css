@@ -145,6 +145,11 @@ a:hover {
 .drawerStyle div{
   justify-content: space-between;
 }
+/* 
+.drawerStyleSmall div:nth-child(3) {
+  height:100vh;
+  justify-content: space-between;
+} */
 
 
 .logoText {
@@ -161,7 +166,8 @@ font-weight: bolder;
 }
 
 .socialButton {
-   height:7rem
+   /* height:7rem */
+   margin-bottom: 10rem;
 }
 
 .media:hover {
