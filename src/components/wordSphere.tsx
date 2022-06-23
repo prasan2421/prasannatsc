@@ -25,10 +25,10 @@ import {
     getContainer: (radius: number, fullWidth: boolean, fullHeight: boolean) =>
       ({
         position: 'relative',
-        width: fullWidth ? '100%' : `${2 * radius}px`,
-        maxWidth: '100%',
-        minHeight: `${2 * radius}px`,
-        height: fullHeight ? '100%' : `${2 * radius}px`,
+        width: '100%',
+        // maxWidth: '100%',
+        // minHeight: `${radius}px`,
+        height:  `${radius}px`,
         touchAction: 'none',
       } as CSSProperties),
   };
@@ -181,7 +181,7 @@ import {
     }
   
     const depth = 2 * radius;
-    const size = 2 * radius;
+    const size = 1 * radius;
     const itemHooks = texts.map(() => createRef());
     const [items, setItems]: [any[], any] = useState([]);
   

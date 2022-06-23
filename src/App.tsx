@@ -24,7 +24,8 @@ import {
 
 import GoTop from "./components/goTop";
 import Product from "./pages/Product";
-import { styled, alpha, ThemeProvider, createTheme, useTheme } from '@mui/material/styles';
+import { styled, alpha, ThemeProvider, createTheme, useTheme,  responsiveFontSizes, } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 
 
 import './css/Header.css';
@@ -49,7 +50,7 @@ function App() {
   );
   
 
-  const theme = React.useMemo(
+  let theme = React.useMemo(
     () =>
       createTheme({
         palette: {
@@ -64,9 +65,13 @@ function App() {
           }),
          
         },
+        
+          
+        
       }), 
     [mode],
   );
+  theme = responsiveFontSizes(theme);
 
   return (
    

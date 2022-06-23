@@ -3,13 +3,14 @@ import React from "react";
 import { useEffect, useState, useRef,useMemo, useCallback } from "react";
 // import Announcement from "../components/Announcement";
 // import Categories from "../components/Categories";
-
+import useMediaQuery from '@mui/material/useMediaQuery';
 import TextField from '@mui/material/TextField';
+
 // import TextareaAutosize from '@mui/material/TextareaAutosize';
 // import Newsletter from "../components/Newsletter";
 // import Products from "../components/Products";
 // import Slider1 from "../components/Slider";
-import { styled, alpha, ThemeProvider, createTheme, useTheme } from '@mui/material/styles';
+import { styled, alpha, ThemeProvider, createTheme, useTheme,responsiveFontSizes, } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -62,6 +63,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 // const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
+
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -215,6 +218,7 @@ const CustomButton = styled(Button)({
 
 const Home = () => {
   const theme = useTheme();
+  const matches = useMediaQuery('(min-width:600px)');
   const [checkedZoom, setCheckedZoom] = React.useState(null);
   const [mouseOverItem, setMouseOverItem] = React.useState(null);
   
@@ -335,39 +339,39 @@ const Home = () => {
     setMouseOverItem(index)
   };
  
-
+  
   return (
     <ThemeProvider 
 theme={theme}
 >
 
     <Box component="main"  sx={{ color: 'text.primary', flexGrow:1, }}>  
-    <Box className='ContainerWrapper'>{'<html>'}</Box>
+    <Box className='ContainerWrapper' sx={{marginX:{ xs: '0.1rem', md:'1rem' },}}>{'<html>'}</Box>
     {renderForm}
     <Box>
     <Alert severity="info" sx={{justifyContent:'center',display:'flex'}}>Portfolio under construction !!</Alert>
       {/* -------------------------------------------- first grid --------------------------------------------------- */}
-    <Grid container style={{height:'100vh',paddingLeft:'4.5rem'}}>  
+    <Grid container sx={{height:'100vh',paddingX: {xs:'2.5rem',md:'4.5rem'}}}>  
     
         <Grid item xs={12} style={{display:'flex', alignItems:'center'}}>
             <Slide direction="up" in={checked} container={containerRef.current}>
               <Box sx={{ color: 'text.primary'}} >
             <Box className="introText">
               <Grow in={checked} style={{ transformOrigin: '0 0 0' }}>
-                <h1> Hi, </h1>
+              <Typography variant="h1"> Hi, </Typography>
               </Grow>
               <Grow in={checked} style={{ transformOrigin: '0 0 0' }}
                   {...(checked ? { timeout: 1000 } : {})}>
-                      <h1>I'm Prasanna,</h1>
+                       <Typography variant="h1">I'm Prasanna,</Typography>
               </Grow>
               <Grow in={checked} style={{ transformOrigin: '0 0 0' }} className='introTextLast'
                   {...(checked ? { timeout: 2000 } : {})}>
-                      <h1>web & mobile developer</h1>
+                      <Typography variant="h1">web & mobile developer</Typography>
               </Grow>
              
               
             </Box>
-            <Box className='subTitle'><p>Front End developer</p></Box>
+            <Box className='subTitle'><Typography variant="subtitle1">Front End developer</Typography></Box>
             <Box  sx={{marginTop:'50px', }}>
                     <CustomButton variant="outlined" onClick={handleOpen}>Contact Me</CustomButton>
                   </Box>
@@ -383,7 +387,7 @@ theme={theme}
 
     <Box style={{position:'relative', overflow: 'hidden', paddingTop:'3rem',paddingBottom:'10rem'}}>
       <Box className="back-text">WORK</Box>
-      <Grid container sx={{paddingLeft:'4.5rem', marginBottom:'5rem'}}>
+      <Grid container sx={{paddingX: {xs:'2.5rem',md:'4.5rem'}, marginBottom:'5rem'}}>
         <Grid item xs={12} md={8}>
       <Slide direction="up" in={checked} container={containerRef.current}>
               <Box sx={{ color: 'text.primary'}} >
@@ -391,13 +395,13 @@ theme={theme}
               
               <Grow in={checked} style={{ transformOrigin: '0 0 0' }}
                   {...(checked ? { timeout: 1000 } : {})}>
-                      <h1>My Portfolio</h1>
+                      <Typography variant="h1">My Portfolio</Typography>
               </Grow>
              
             </Box>
             <Box className='subTitle'>
-              <p>A small gallery of recent projects chosen by me. I've done them all together with amazing people from companies around the globe. It's only a drop in the ocean compared to the entire list.</p>
-              <p>Interested to see some more? Visit my work page.</p>
+            <Typography variant="body1">A small gallery of recent projects chosen by me. I've done them all together with amazing people from companies around the globe. It's only a drop in the ocean compared to the entire list.</Typography>
+            <Typography variant="body1">Interested to see some more? Visit my work page.</Typography>
               </Box>
                 <Box >
                 </Box>
@@ -459,7 +463,7 @@ theme={theme}
 
           <Box style={{position:'relative', overflow: 'hidden', paddingTop:'5rem',paddingBottom:'10rem'}}>
           <Box className="back-text-third">Blog</Box>
-                <Grid container sx={{paddingLeft:'4.5rem', marginBottom:'5rem'}}>
+                <Grid container sx={{paddingX: {xs:'2.5rem',md:'4.5rem'}, marginBottom:'5rem'}}>
                   <Grid item xs={12} md={6}>
                 <Slide direction="up" in={checked} container={containerRef.current}>
                         <Box sx={{ color: 'text.primary'}} >
@@ -467,24 +471,25 @@ theme={theme}
                         
                         <Grow in={checked} style={{ transformOrigin: '0 0 0' }}
                             {...(checked ? { timeout: 1000 } : {})}>
-                                <h1>Me, Myself and I</h1>
+                                <Typography variant="h1">Me, Myself and I</Typography>
                         </Grow>
                       
                       </Box>
                       <Box className='subTitle'>
-                        <p>Since Adobe Flash was a complete innovation, alongside with CSS 1.0 and HTML 4.01 as standards of the current web I've veen passionate about web.</p>
-                        <p>For over a decade I had many opportunities to work in a vast spectrum of web technologies what let me gather a significant amount of various experience. Working for companies and individuals around the globe I met and learnt from amazing and ambitious people..</p>
-                        <p>I currently work remotely with a selected freelance client base being open for new opportunities.</p>
+                      <Typography variant="body1">Since Adobe Flash was a complete innovation, alongside with CSS 1.0 and HTML 4.01 as standards of the current web I've veen passionate about web.</Typography>
+                      <Typography variant="body1">For over a decade I had many opportunities to work in a vast spectrum of web technologies what let me gather a significant amount of various experience. Working for companies and individuals around the globe I met and learnt from amazing and ambitious people..</Typography>
+                      <Typography variant="body1">I currently work remotely with a selected freelance client base being open for new opportunities.</Typography>
                         </Box>
                           <Box>
                           </Box>
                         </Box>
                         </Slide>
                   </Grid>
-                  <Grid item xs={12} md={6} sx={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+                  <Grid item xs={12} md={6} sx={{display:'flex', justifyContent:'center', alignItems:'center', }}>
                 
-                              <TagSphere/>
-                          
+                              <Box sx={{marginTop:'3rem',display:{sm:'block',md:'block',lg:'none'}}}><TagSphere radius={195}/></Box>
+                              <Box sx={{display:{sm:'none',md:'none',lg:'block'}}}><TagSphere radius={400}/></Box>
+                              
                   </Grid>
                   </Grid>
                   
@@ -527,9 +532,9 @@ theme={theme}
     
     {/* -------------------------------------------- Fifth grid --------------------------------------------------- */}
    
-    <Box style={{position:'relative', overflow: 'hidden', paddingTop:'5rem',}}>
+    <Box sx={{position:'relative', overflow: 'hidden', paddingY:'5rem',}}>
           
-                <Grid container sx={{paddingLeft:'4.5rem',}} spacing={4}>
+                <Grid container sx={{paddingX: {xs:'2.5rem',md:'4.5rem'}}} spacing={4}>
                   <Grid item xs={12} md={6} sx={{display:'flex', alignItems:'center'}}>
                 <Slide direction="up" in={checked} container={containerRef.current}>
                         <Box sx={{ color: 'text.primary'}} >
@@ -575,7 +580,7 @@ theme={theme}
                   </Grid>
                   
                   </Grid>
-                  <Box className='ContainerWrapper-base'>{'</html>'}</Box>
+                  <Box className='ContainerWrapper-base' sx={{marginX:{ xs: '0.1rem', md:'1rem' },}}>{'</html>'}</Box>
               </Box>
    
           {/* -------------------------------------------- Fifth grid end--------------------------------------------------- */}
