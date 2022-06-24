@@ -6,6 +6,7 @@ import {
     useRef,
     useState,
   } from 'react';
+  import Box from '@mui/material/Box';
   
   type tagSphereProps = {
     texts: (string | ReactNode)[];
@@ -86,7 +87,7 @@ import {
     // @ts-ignore
     itemEl.style.transform = transform;
     // @ts-ignore
-    itemEl.style.filter = `grayscale(${(alpha - 1) * -8}) blur(${
+    itemEl.style.filter = `grayscale(${(alpha - 1) * -2}) blur(${
       (alpha - 1) * -5 > 1 ? Math.floor((alpha - 1) * -8) : 0
     }px)`;
     itemEl.style.zIndex = Math.floor(alpha * 1000);
@@ -328,7 +329,7 @@ import {
             ? style || defaultStyles.getContainer(radius, fullWidth, fullHeight)
             : undefined
         }>
-        <b>{items.map(item => item.el)}</b>
+        <Box sx={{fontSize:'25px', fontWeight:'bold', color:'#f44335'}}>{items.map(item => item.el)}</Box>
       </div>
     );
   }

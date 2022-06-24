@@ -132,9 +132,9 @@ const DrawerNav= (props:any) => {
              
               <List>
               <Box
-                  sx={{justifyContent:'center',display: { xs: 'flex', md: 'none' },color: 'text.primary',marginBottom:'2rem'}}>
+                  sx={{justifyContent:'center',alignItem:'center',display: { xs: 'flex', md: 'none' },color: 'text.primary',marginBottom:'2rem'}}>
                  <IconButton
-                    
+                    sx={{margin:0}}
                     edge="start"
                     color="inherit"
                     aria-label="close drawer"

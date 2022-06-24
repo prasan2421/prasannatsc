@@ -12,7 +12,9 @@
     align-items: center;
     height: 100vh; */
 }
-
+h1,h2{
+  font-weight: bold!important;
+}
 .ContainerWrapper{
   position:absolute;
   font-family: 'La Belle Aurore',cursive;
@@ -105,7 +107,7 @@
   line-height: 1em;
 }
 
-.PortfolioTitle h1{
+.PortfolioTitle h2{
   /* font-size: 4em; */
   display: block ;
   margin: 0;

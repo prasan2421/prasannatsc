@@ -395,7 +395,7 @@ theme={theme}
               
               <Grow in={checked} style={{ transformOrigin: '0 0 0' }}
                   {...(checked ? { timeout: 1000 } : {})}>
-                      <Typography variant="h1">My Portfolio</Typography>
+                      <Typography variant="h2">My Portfolio</Typography>
               </Grow>
              
             </Box>
@@ -464,20 +464,20 @@ theme={theme}
           <Box style={{position:'relative', overflow: 'hidden', paddingTop:'5rem',paddingBottom:'10rem'}}>
           <Box className="back-text-third">Blog</Box>
                 <Grid container sx={{paddingX: {xs:'2.5rem',md:'4.5rem'}, marginBottom:'5rem'}}>
-                  <Grid item xs={12} md={6}>
+                  <Grid item xs={12} md={6} sx={{display:'flex', alignItems:'center'}}>
                 <Slide direction="up" in={checked} container={containerRef.current}>
                         <Box sx={{ color: 'text.primary'}} >
                       <Box className="PortfolioTitle">
                         
                         <Grow in={checked} style={{ transformOrigin: '0 0 0' }}
                             {...(checked ? { timeout: 1000 } : {})}>
-                                <Typography variant="h1">Me, Myself and I</Typography>
+                                <Typography variant="h2">Me, Myself and I</Typography>
                         </Grow>
                       
                       </Box>
                       <Box className='subTitle'>
-                      <Typography variant="body1">Since Adobe Flash was a complete innovation, alongside with CSS 1.0 and HTML 4.01 as standards of the current web I've veen passionate about web.</Typography>
-                      <Typography variant="body1">For over a decade I had many opportunities to work in a vast spectrum of web technologies what let me gather a significant amount of various experience. Working for companies and individuals around the globe I met and learnt from amazing and ambitious people..</Typography>
+                      <Typography variant="body1" sx={{marginBottom:'2rem'}}>Since Adobe Flash was a complete innovation, alongside with CSS 1.0 and HTML 4.01 as standards of the current web I've veen passionate about web.</Typography>
+                      <Typography variant="body1" sx={{marginBottom:'2rem'}}>For over a decade I had many opportunities to work in a vast spectrum of web technologies what let me gather a significant amount of various experience. Working for companies and individuals around the globe I met and learnt from amazing and ambitious people..</Typography>
                       <Typography variant="body1">I currently work remotely with a selected freelance client base being open for new opportunities.</Typography>
                         </Box>
                           <Box>
@@ -488,14 +488,14 @@ theme={theme}
                   <Grid item xs={12} md={6} sx={{display:'flex', justifyContent:'center', alignItems:'center', }}>
                 
                               <Box sx={{marginTop:'3rem',display:{sm:'block',md:'block',lg:'none'}}}><TagSphere radius={195}/></Box>
-                              <Box sx={{display:{sm:'none',md:'none',lg:'block'}}}><TagSphere radius={400}/></Box>
+                              <Box sx={{display:{sm:'none',md:'none',lg:'block'}}}><TagSphere radius={600}/></Box>
                               
                   </Grid>
                   </Grid>
                   
               </Box>
 
-          {/* -------------------------------------------- Second grid end --------------------------------------------------- */}
+          {/* -------------------------------------------- Third grid end --------------------------------------------------- */}
     
           {/* -------------------------------------------- Fourth grid --------------------------------------------------- */}
    
@@ -525,6 +525,7 @@ theme={theme}
      <Link href="#" underline="none" >
         See all articles.....
       </Link>
+      
       </Box>
    </Container>
    
@@ -542,12 +543,12 @@ theme={theme}
                         
                         <Grow in={checked} style={{ transformOrigin: '0 0 0' }}
                             {...(checked ? { timeout: 1000 } : {})}>
-                                <h1>Contact me</h1>
+                                <Typography variant="h2">Contact me</Typography>
                         </Grow>
                       
                       </Box>
                       <Box className='subTitle'>
-                        <p>I'm interested in freelance opportunities- especially ambitious or large projects. However, if you have other request or question, don't hesitate to use the form.</p>
+                      <Typography variant="body1">I'm interested in freelance opportunities- especially ambitious or large projects. However, if you have other request or question, don't hesitate to use the form.</Typography>
                         </Box>
                         <Box className='formBelow'>
                         <TextField id="outlined-basic" label="Name" variant="outlined" style={{ width:'50%', marginBottom:'10px' , paddingRight:'5px'}}/>
