@@ -408,7 +408,7 @@ theme={theme}
               </Box>
               </Slide>
         </Grid>
-        <Grid item xs={12} md={4} sx={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+        <Grid item xs={12} md={4} sx={{display:'flex', marginTop:{sm:'3rem'}, justifyContent:{sm:'left', md:'center'}, alignItems:{sm:'left',md:'center'}}}>
        
                     <CustomButton variant="outlined" onClick={handleOpen}>See more!</CustomButton>
                  
@@ -487,8 +487,8 @@ theme={theme}
                   </Grid>
                   <Grid item xs={12} md={6} sx={{display:'flex', justifyContent:'center', alignItems:'center', }}>
                 
-                              <Box sx={{marginTop:'3rem',display:{sm:'block',md:'block',lg:'none'}}}><TagSphere radius={195}/></Box>
-                              <Box sx={{display:{sm:'none',md:'none',lg:'block'}}}><TagSphere radius={600}/></Box>
+                              <Box sx={{marginTop:'3rem',display:{xs:'block',sm:'block',md:'block',lg:'block',xl:'none'}}}><TagSphere radius={195}/></Box>
+                              <Box sx={{display:{xs:'none',sm:'none',md:'none',lg:'none',xl:'block'}}}><TagSphere radius={500}/></Box>
                               
                   </Grid>
                   </Grid>
