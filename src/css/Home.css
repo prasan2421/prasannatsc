@@ -116,13 +116,35 @@ h1,h2{
   
 }
 
+.PortfolioTitle{
+  position: relative;
+}
 
+.PortfolioTitle::before{
+  content: '<h2>';
+  font-family: 'La Belle Aurore',cursive;
+  color: #515152;
+  font-size: 1.2rem;
+  position: absolute;
+ 
+  left: -1.5rem;
+  top: -1.5rem;
+}
 
 a:hover {  
   color: rgb(44, 183, 253);  
 }
 
-
+.PortfolioTitle::after{
+  content: '<h2/>';
+  font-family: 'La Belle Aurore',cursive;
+  color: #515152;
+  font-size: 1.2rem;
+  position: absolute;
+  
+  left: -1.5rem;
+  bottom: -1.5rem;
+}
 
 .drawerStyle div{
   justify-content: space-between;
@@ -223,19 +245,104 @@ align-items: center;
 
   
   
-  
+
+  .circle {
+    border: 0.3em dashed #2b2c2c;
+    border-radius: 50%;
+    box-shadow: 0.375em 0.375em 0 0 rgba(15, 28, 63, 0.125);
+    height: 20em;
+    width: 20em;
+  }
+
+  .circle2 {
+    border: 0.2em dashed #3f4141;
+    border-radius: 50%;
+    box-shadow: 0.375em 0.375em 0 0 rgba(15, 28, 63, 0.125);
+    height: 17em;
+    width: 17em;
+  }
+
+  .introText{
+    position: relative;
+  }
+
+  .introText::before{
+    content: '<h1>';
+    font-family: 'La Belle Aurore',cursive;
+    color: #515152;
+    font-size: 1.2rem;
+    position: absolute;
+    top: -1.5rem;
+    left: -1.5rem;
+   
+  }
   .introTextLast{
 position:relative;
   }
 
-  
+  .introTextLast::after{
+    content: '<h1/>';
+    font-family: 'La Belle Aurore',cursive;
+    color: #515152;
+    font-size: 1.2rem;
+    position: absolute;
+    margin-top: 2rem;
+  }
+
+  .subTitle{
+    position:relative;
+    margin-top:2rem ;
+  }
+
+  .subTitle::before{
+    content: '<p>';
+    font-family: 'La Belle Aurore',cursive;
+    color: #515152;
+    font-size: 1.2rem;
+    position: absolute;
+   
+    left: -1.5rem;
+    top: -1.5rem;
+  }
+
+
+  .subTitle::after{
+    content: '<p/>';
+    font-family: 'La Belle Aurore',cursive;
+    color: #515152;
+    font-size: 1.2rem;
+    position: absolute;
+    
+    left: -1.5rem;
+    bottom: -1.5rem;
+  }
 
   .formBelow{
     position: relative;
     margin-top: 4rem;
   }
 
-  
+  .formBelow::before{
+    content: '<form>';
+    font-family: 'La Belle Aurore',cursive;
+    color: #515152;
+    font-size: 1.2rem;
+    position: absolute;
+   
+    left: -1.5rem;
+    top: -1.5rem;
+  }
+
+  .formBelow::after{
+    content: '<form/>';
+    font-family: 'La Belle Aurore',cursive;
+    color: #515152;
+    font-size: 1.2rem;
+    position: absolute;
+    
+    left: -1.5rem;
+    bottom: -1.5rem;
+  }
 
   .bodyContainer{
     /* background-color:#f44336; */

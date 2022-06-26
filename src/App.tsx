@@ -7,7 +7,7 @@ import ProductList from "./pages/ProductList";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
 import { ColorModeContext } from './constants/color-context';
-
+import Alert from '@mui/material/Alert';
 import CssBaseline from '@mui/material/CssBaseline';
 import {Toolbar,Box} from '@mui/material';
 import SimpleBar from 'simplebar-react';
@@ -77,7 +77,9 @@ function App() {
    
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
+      
       <SimpleBar style={{ height: 'calc(100% - 6rem)'}}>
+      <Alert severity="info" sx={{justifyContent:'center',display:'flex'}}>Portfolio under construction !!</Alert>
             <BrowserRouter>
               <Box sx={{ display: 'flex'}}>
                 <CssBaseline />

@@ -43,7 +43,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
-import '../css/MainStyle.css';
+import '../css/Home.css';
 import Alert from '@mui/material/Alert';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import TagSphere from "../components/wordSphere";
@@ -349,7 +349,7 @@ theme={theme}
     <Box className='ContainerWrapper' sx={{marginX:{ xs: '0.1rem', md:'1rem' },}}>{'<html>'}</Box>
     {renderForm}
     <Box>
-    <Alert severity="info" sx={{justifyContent:'center',display:'flex'}}>Portfolio under construction !!</Alert>
+    
       {/* -------------------------------------------- first grid --------------------------------------------------- */}
     <Grid container sx={{height:'100vh',paddingX: {xs:'2.5rem',md:'4.5rem'}}}>  
     
@@ -391,7 +391,7 @@ theme={theme}
         <Grid item xs={12} md={8}>
       <Slide direction="up" in={checked} container={containerRef.current}>
               <Box sx={{ color: 'text.primary'}} >
-            <Box className="PortfolioTitle">
+            <Box className="PortfolioTitle ">
               
               <Grow in={checked} style={{ transformOrigin: '0 0 0' }}
                   {...(checked ? { timeout: 1000 } : {})}>
