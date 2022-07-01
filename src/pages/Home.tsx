@@ -377,8 +377,8 @@ theme={theme}
             </Box>
             <Box className='subTitle'><Typography variant="subtitle1">Front End developer</Typography></Box>
             <Box  sx={{marginTop:'50px', }}>
-                    <CustomButton variant="outlined" onClick={handleOpen}>Contact Me</CustomButton>
-                    <CustomButton sx={{marginLeft:'1rem'}} variant="contained" endIcon={<DownloadIcon />} onClick={handleOpen}>CV</CustomButton>
+                    <CustomButton variant="outlined" onClick={handleOpen} sx={{width:{xs:'100%',sm:'auto'}}}>Contact Me</CustomButton>
+                    <CustomButton sx={{width:{xs:'100%',sm:'auto'},marginLeft:{sm:'1rem'}, marginTop:{xs:'10px',sm:'0'}}} variant="contained" endIcon={<DownloadIcon />} onClick={handleOpen}>CV</CustomButton>
                   </Box>
                 <Box>
                 </Box>
