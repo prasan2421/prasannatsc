@@ -25,7 +25,7 @@ import Backdrop from '@mui/material/Backdrop';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Send from '@mui/icons-material/Send';
 import Zoom from '@mui/material/Zoom';
-
+import DownloadIcon from '@mui/icons-material/Download';
 // import Typography from '@mui/material/Typography';
 import Grow from '@mui/material/Grow';
 import Slide from '@mui/material/Slide';
@@ -218,6 +218,10 @@ const CustomButton = styled(Button)({
 
 const Home = () => {
   const theme = useTheme();
+
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   const matches = useMediaQuery('(min-width:600px)');
   const [checkedZoom, setCheckedZoom] = React.useState(null);
   const [mouseOverItem, setMouseOverItem] = React.useState(null);
@@ -374,6 +378,7 @@ theme={theme}
             <Box className='subTitle'><Typography variant="subtitle1">Front End developer</Typography></Box>
             <Box  sx={{marginTop:'50px', }}>
                     <CustomButton variant="outlined" onClick={handleOpen}>Contact Me</CustomButton>
+                    <CustomButton sx={{marginLeft:'1rem'}} variant="contained" endIcon={<DownloadIcon />} onClick={handleOpen}>CV</CustomButton>
                   </Box>
                 <Box>
                 </Box>
@@ -408,7 +413,7 @@ theme={theme}
               </Box>
               </Slide>
         </Grid>
-        <Grid item xs={12} md={4} sx={{display:'flex', marginTop:{sm:'3rem'}, justifyContent:{sm:'left', md:'center'}, alignItems:{sm:'left',md:'center'}}}>
+        <Grid item xs={12} md={4} sx={{display:'flex', marginTop:{xs:'3rem'}, justifyContent:{sm:'left', md:'center'}, alignItems:{sm:'left',md:'center'}}}>
        
                     <CustomButton variant="outlined" onClick={handleOpen}>See more!</CustomButton>
                  
@@ -548,7 +553,7 @@ theme={theme}
                       
                       </Box>
                       <Box className='subTitle'>
-                      <Typography variant="body1">I'm interested in freelance opportunities- especially ambitious or large projects. However, if you have other request or question, don't hesitate to use the form.</Typography>
+                      <Typography variant="body1">I'm interested in part time / full time or freelance work opportunities- especially ambitious or large projects. However, if you have other request or question, don't hesitate to use the form.</Typography>
                         </Box>
                         <Box className='formBelow'>
                         <TextField id="outlined-basic" label="Name" variant="outlined" style={{ width:'50%', marginBottom:'10px' , paddingRight:'5px'}}/>

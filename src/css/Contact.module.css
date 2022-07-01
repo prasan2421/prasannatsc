@@ -15,9 +15,6 @@
 h1,h2{
   font-weight: bold!important;
 }
-
-
-
 .ContainerWrapper{
   position:absolute;
   font-family: 'La Belle Aurore',cursive;
@@ -37,28 +34,6 @@ h1,h2{
     position: absolute;
    
     top: 2.5rem;
-}
-
-.AboutDiv::before{
-  content: '<div>';
-  padding-Left:2.5rem;
-    font-family: 'La Belle Aurore',cursive;
-    color: #515152;
-    font-size: 1.2rem;
-    position: absolute;
-   
-    top: -2rem;
-}
-
-.AboutDiv::after{
-  content: '</div>';
-  padding-Left:2.5rem;
-    font-family: 'La Belle Aurore',cursive;
-    color: #515152;
-    font-size: 1.2rem;
-    position: absolute;
-   
-    bottom: -2rem;
 }
 
 .ContainerWrapper-base{
@@ -132,7 +107,7 @@ h1,h2{
   line-height: 1em;
 }
 
-.PortfolioTitle h1{
+.PortfolioTitle h2{
   /* font-size: 4em; */
   display: block ;
   margin: 0;
@@ -143,18 +118,17 @@ h1,h2{
 
 .PortfolioTitle{
   position: relative;
-  margin-top: 1.5rem;
 }
 
 .PortfolioTitle::before{
-  content: '<h1>';
+  content: '<h2>';
   font-family: 'La Belle Aurore',cursive;
   color: #515152;
   font-size: 1.2rem;
   position: absolute;
  
   left: -1.5rem;
-  top: -1rem;
+  top: -1.5rem;
 }
 
 a:hover {  
@@ -162,7 +136,7 @@ a:hover {
 }
 
 .PortfolioTitle::after{
-  content: '<h1/>';
+  content: '<h2/>';
   font-family: 'La Belle Aurore',cursive;
   color: #515152;
   font-size: 1.2rem;
@@ -317,7 +291,7 @@ position:relative;
 
   .subTitle{
     position:relative;
-    margin-top:3rem ;
+    margin-top:2rem ;
   }
 
   .subTitle::before{

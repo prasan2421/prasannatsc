@@ -96,13 +96,68 @@ const center = {
 };
 
 
-const PersonalData=[
-  {'title':'Name', 'subtitle':'Prasanna Tuladhar'},
-  {'title':'Birth Date', 'subtitle':'23/03/1993'},
-  {'title':'Email', 'subtitle':'tuladharprasan@gmail.com'},
-  {'title':'Website', 'subtitle':'www.prasannat.com'},
-  {'title':'Address', 'subtitle':'Storgata 63, 0182, Oslo'},
-  
+const HardData=[
+  {'image':travel, 'title':'HTML', 'subtitle':'Basic','subField':['Nonverbal communication','Public speaking','Verbal Communication']},
+      {'image':ballSports, 'title':'CSS', 'subtitle':'Good','subField':['Conflict resolution','Constructive criticism','Counseling','Mediating','Problem-solving']},
+      {'image':technology, 'title':'Javascript', 'subtitle':'Good','subField':['Caring','Compassion','Diplomacy','Diversity','Helping others','Kindness','Patience','Respect','Sensitivity','Sympathy']},
+      {'image':art, 'title':'Typescript', 'subtitle':'Good','subField':['Encouraging',
+       'Inspiring trust',
+        'Instructing',
+        'Management',
+        'Mentoring',
+        'Motivation',
+        'Positive reinforcement']},
+      {'image':guitar, 'title':'Graphic Designing', 'subtitle':'Good','subField':['Active listening',
+        'Curiosity',
+        'Focus',
+        'Inquiry']},
+      {'image':cycling, 'title':'UI/UX designing', 'subtitle':'Good','subField':['Negotiating',
+        'Persuasion',
+        'Research']},
+      {'image':cycling, 'title':'PHP', 'subtitle':'Good','subField':['Behavioral skills',
+        'Developing rapport',
+        'Friendliness',
+        'Humor',
+        'Networking',
+        'Social skills']},
+      {'image':cycling, 'title':'Video Editing', 'subtitle':'Good','subField':['Collaboration',
+        'Group facilitating',
+        'Team building',
+        'Teamwork']},
+      
+      
+  ];
+
+const InterpersonalData=[
+  {'image':travel, 'title':'Communication', 'subtitle':'Basic','subField':['Nonverbal communication','Public speaking','Verbal Communication']},
+      {'image':ballSports, 'title':'Conflict Management', 'subtitle':'Good','subField':['Conflict resolution','Constructive criticism','Counseling','Mediating','Problem-solving']},
+      {'image':technology, 'title':'Empathy', 'subtitle':'Good','subField':['Caring','Compassion','Diplomacy','Diversity','Helping others','Kindness','Patience','Respect','Sensitivity','Sympathy']},
+      {'image':art, 'title':'Leadership', 'subtitle':'Good','subField':['Encouraging',
+       'Inspiring trust',
+        'Instructing',
+        'Management',
+        'Mentoring',
+        'Motivation',
+        'Positive reinforcement']},
+      {'image':guitar, 'title':'Listening', 'subtitle':'Good','subField':['Active listening',
+        'Curiosity',
+        'Focus',
+        'Inquiry']},
+      {'image':cycling, 'title':'Negotiation', 'subtitle':'Good','subField':['Negotiating',
+        'Persuasion',
+        'Research']},
+      {'image':cycling, 'title':'Positive Attitude', 'subtitle':'Good','subField':['Behavioral skills',
+        'Developing rapport',
+        'Friendliness',
+        'Humor',
+        'Networking',
+        'Social skills']},
+      {'image':cycling, 'title':'Teamwork', 'subtitle':'Good','subField':['Collaboration',
+        'Group facilitating',
+        'Team building',
+        'Teamwork']},
+      
+      
   ];
  
     const EducationData=[
@@ -402,7 +457,7 @@ theme={theme}
       {/* -------------------------------------------- First grid --------------------------------------------------- */}
 
     <Box style={{position:'relative', overflow: 'hidden', paddingTop:'6rem',paddingBottom:'10rem'}}>
-      <Box className="back-text">About</Box>
+      <Box className="back-text">Skills</Box>
       <Grid container sx={{paddingX: {xs:'2.5rem',md:'4.5rem'}, marginBottom:'5rem'}}>
         <Grid item xs={12} lg={8}>
       <Slide direction="up" in={checked} container={containerRef.current}>
@@ -411,12 +466,12 @@ theme={theme}
               
               <Grow in={checked} style={{ transformOrigin: '0 0 0' }}
                   {...(checked ? { timeout: 1000 } : {})}>
-                      <Typography variant="h1">About Me</Typography>
+                      <Typography variant="h1">My Skills</Typography>
               </Grow>
              
             </Box>
             <Box className={styles.subTitle}>
-            <Typography variant="h5"><b style={{color:'turquoise'}}>Hello! I'm Prasanna.</b> I'm a Web / Mobile application development professional involved in the development of various applications throughout my few years of involvement in the field. I have a background in Computer science and Information Technologies and Information Systems.</Typography>
+            <Typography variant="h5">Throughout my life both as a student and as a work employee, I have developed great skills to perform my activities. These skills were rewarding and helpful for my to achieve my goals as well as help me to improve myself.</Typography>
             
               </Box>
                 <Box >
@@ -442,58 +497,30 @@ theme={theme}
      <Container maxWidth="xl" sx={{marginTop:'-5rem'}}  >
      <Grid container > 
      
-      <Grid xs={12} sm={6} >
-        <Card sx={{margin:'7px', borderTop:`2px solid crimson`, height:'97%'}}>
-          <CardActionArea>
-            <CardContent>
-            <Typography gutterBottom variant="h5" component="div" color="crimson">
-                Personal Details
-              </Typography>
-              {PersonalData.map((text, index) => (
-                <Box sx={{display:'flex'}}>
-                  <Grid container>
-                    <Grid item xs={5}>
-                    <Typography gutterBottom variant="body1" component="div">
-                {text.title}
-              </Typography>
-                    </Grid>
-                    <Grid item xs={7}>
-                    <Typography variant="body1" color="text.secondary">
-              {text.subtitle}
-              </Typography>
-                    </Grid>
-                  </Grid>
-              
-              
-              </Box>
-              ))}
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </Grid>
-      <Grid xs={12} sm={6}>
+     <Grid xs={12} sm={6}>
         <Card sx={{margin:'7px', borderTop:`2px solid darkorange`,}}>
-          <CardActionArea>
+          
             <CardContent>
             <Typography gutterBottom variant="h5" component="div" color="darkorange">
-                My Interests
+                Interpersonal Skills
               </Typography>
               <Grid container >
-              {InterestData.map((text, index) => (
-                 
+              {InterpersonalData.map((text, index) => (
+                
                 <Grid xs={6} sm={6} md={3} sx={{display:'flex',justifyContent:'center'}}>
+                  <CardActionArea sx={{borderRadius:'20px',overflow:'hidden'}}>
                 <Box sx={{ marginY:'15px', }}>
                   <Box sx={{    justifyContent: 'center',
     display: 'flex'}}>
                   <img
                       src={text.image}
-                      style={{height:'70px', width:'70px', marginRight:'15px', justifyContent:'center', alignItems:'center'}}
+                      style={{height:'70px', width:'70px',  justifyContent:'center', alignItems:'center'}}
                       // alt={item.title}
                       loading="lazy"
                     />
                   </Box>
                     
-                    <Box sx={{marginY:'1rem'}}>
+                    <Box sx={{marginY:'1rem', justifyContent:'center', display:'flex'}}>
                       <Typography variant="body1" >
                         {text.title}
                       </Typography>
@@ -501,119 +528,91 @@ theme={theme}
                      
                     </Box>
               </Box>
+              </CardActionArea>
               </Grid>
+              
               ))}</Grid>
             </CardContent>
-          </CardActionArea>
+          
+        </Card>
+      </Grid>
+      <Grid xs={12} sm={6}>
+        <Card sx={{margin:'7px', borderTop:`2px solid crimson`,}}>
+          
+            <CardContent>
+            <Typography gutterBottom variant="h5" component="div" color="crimson">
+                Soft Skills
+              </Typography>
+              <Grid container >
+              {InterestData.map((text, index) => (
+                 
+                 <Grid xs={6} sm={6} md={3} sx={{display:'flex',justifyContent:'center'}}>
+                 <CardActionArea sx={{borderRadius:'20px',overflow:'hidden'}}>
+               <Box sx={{ marginY:'15px', }}>
+                 <Box sx={{    justifyContent: 'center',
+   display: 'flex'}}>
+                 <img
+                     src={text.image}
+                     style={{height:'70px', width:'70px',display:'flex',  justifyContent:'center', alignItems:'center'}}
+                     // alt={item.title}
+                     loading="lazy"
+                   />
+                 </Box>
+                   
+                   <Box sx={{marginY:'1rem', justifyContent:'center', display:'flex'}}>
+                     <Typography variant="body1" >
+                       {text.title}
+                     </Typography>
+                     
+                    
+                   </Box>
+             </Box>
+             </CardActionArea>
+             </Grid>
+             
+              ))}</Grid>
+            </CardContent>
+          
         </Card>
       </Grid>
       <Grid xs={12} >
         <Card sx={{margin:'7px', borderTop:`2px solid lightgreen`}}>
-          <CardActionArea>
+         
             <CardContent>
             <Typography gutterBottom variant="h5" component="div" color="lightgreen">
-                Education
-              </Typography>
-              {EducationData.map((text, index) => (
-                <Box sx={{display:{sm:'flex'}, marginY:'15px',}}>
-                  <Box sx={{width:{xs:'100%',sm:'auto'},justifyContent:'center', alignItems:'center',display:{xs:'flex',sm:'block'}}}>
-                  <img
-                      src={text.image}
-                      style={{height:'70px', width:'70px', marginRight:'15px', justifyContent:'center', alignItems:'center'}}
-                      // alt={item.title}
-                      loading="lazy"
-                    />
-                  </Box>
-                    
-                    <Box sx={{marginY:{xs:'1rem',sm:0}}}>
-                      <Typography variant="body1" >
-                        {text.title}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {text.subtitle}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {text.date}
-                      </Typography>
-                    </Box>
-              </Box>
-              ))}
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </Grid>
-      <Grid xs={12} sm={6} >
-        <Card sx={{margin:'7px', borderTop:`2px solid cyan`}}>
-          <CardActionArea>
-            <CardContent>
-            <Typography gutterBottom variant="h5" component="div" color="cyan">
-                Trainings
-              </Typography>
-              {TrainingData.map((text, index) => (
-                <Box sx={{display:{sm:'flex'}, marginY:'15px',}}>
-                  <Box sx={{width:{xs:'100%',sm:'auto'},justifyContent:'center', alignItems:'center',display:{xs:'flex',sm:'block'}}}>
-                  <img
-                      src={text.image}
-                      style={{height:'70px', width:'70px', marginRight:'15px', justifyContent:'center', alignItems:'center'}}
-                      // alt={item.title}
-                      loading="lazy"
-                    />
-                  </Box>
-                    
-                    <Box sx={{marginY:{xs:'1rem',sm:0}}}>
-                      <Typography variant="body1" >
-                        {text.title}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {text.subtitle}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {text.date}
-                      </Typography>
-                    </Box>
-              </Box>
-              ))}
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </Grid>
-      <Grid xs={12} sm={6}>
-        <Card sx={{margin:'7px', borderTop:`2px solid #f2c204`}}>
-          <CardActionArea>
-            <CardContent>
-            <Typography gutterBottom variant="h5" component="div" color="#f2c204">
-                Languages
+                Hard Skills
               </Typography>
               <Grid container >
-              {LanguageData.map((text, index) => (
-                 
+              {HardData.map((text, index) => (
                 <Grid xs={6} sm={6} md={3} sx={{display:'flex',justifyContent:'center'}}>
-                <Box sx={{ marginY:'15px', }}>
-                  <Box >
-                  <img
-                      src={text.image}
-                      style={{height:'70px', width:'70px', marginRight:'15px', justifyContent:'center', alignItems:'center'}}
-                      // alt={item.title}
-                      loading="lazy"
-                    />
-                  </Box>
+                <CardActionArea sx={{borderRadius:'20px',overflow:'hidden'}}>
+              <Box sx={{ marginY:'15px', }}>
+                <Box sx={{    justifyContent: 'center',
+  display: 'flex'}}>
+                <img
+                    src={text.image}
+                    style={{height:'70px', width:'70px',display:'flex',  justifyContent:'center', alignItems:'center'}}
+                    // alt={item.title}
+                    loading="lazy"
+                  />
+                </Box>
+                  
+                  <Box sx={{marginY:'1rem', justifyContent:'center', display:'flex'}}>
+                    <Typography variant="body1" >
+                      {text.title}
+                    </Typography>
                     
-                    <Box sx={{marginY:'1rem'}}>
-                      <Typography variant="body1" >
-                        {text.title}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {text.subtitle}
-                      </Typography>
-                     
-                    </Box>
-              </Box>
-              </Grid>
+                   
+                  </Box>
+            </Box>
+            </CardActionArea>
+            </Grid>
               ))}</Grid>
             </CardContent>
-          </CardActionArea>
+        
         </Card>
       </Grid>
+      
      </Grid>
      
    </Container>

@@ -106,10 +106,8 @@ const PersonalData=[
   ];
  
     const EducationData=[
-      {'image':usn, 'title':'Master of Science in Management Information Systems', 'subtitle':'University of South-Eastern Norway','date':'2020 - 2022'},
-      {'image':tu, 'title':'Bachelor of Science in Computer Science and Information Technologies', 'subtitle':'Tribhuvan University','date':'2013 - 2017'},
-      {'image':tic, 'title':'Intermediate with Science', 'subtitle':'Trinity International College','date':'2010 - 2012'},
-      
+      {'image':usn, 'title':'Application Developer (Web / Mobile)', 'subtitle':'I.Click Pvt.Ltd. ','date':'07/03/2018 – 30/11/2020 '},
+      {'image':tu, 'title':'Internship in Web Development', 'subtitle':'Sherpa Technologies Pvt. Ltd.','date':'02/08/2017 – 09/12/2017'},
       
       ];
 
@@ -402,7 +400,7 @@ theme={theme}
       {/* -------------------------------------------- First grid --------------------------------------------------- */}
 
     <Box style={{position:'relative', overflow: 'hidden', paddingTop:'6rem',paddingBottom:'10rem'}}>
-      <Box className="back-text">About</Box>
+      <Box className="back-text">Work </Box>
       <Grid container sx={{paddingX: {xs:'2.5rem',md:'4.5rem'}, marginBottom:'5rem'}}>
         <Grid item xs={12} lg={8}>
       <Slide direction="up" in={checked} container={containerRef.current}>
@@ -411,12 +409,12 @@ theme={theme}
               
               <Grow in={checked} style={{ transformOrigin: '0 0 0' }}
                   {...(checked ? { timeout: 1000 } : {})}>
-                      <Typography variant="h1">About Me</Typography>
+                      <Typography variant="h1">Work Experience</Typography>
               </Grow>
              
             </Box>
             <Box className={styles.subTitle}>
-            <Typography variant="h5"><b style={{color:'turquoise'}}>Hello! I'm Prasanna.</b> I'm a Web / Mobile application development professional involved in the development of various applications throughout my few years of involvement in the field. I have a background in Computer science and Information Technologies and Information Systems.</Typography>
+            <Typography variant="h5">I have worked as a Web / Mobile application developer in my professional career where I was involved in the development of various applications throughout my few years of involvement in the field. </Typography>
             
               </Box>
                 <Box >
@@ -442,77 +440,13 @@ theme={theme}
      <Container maxWidth="xl" sx={{marginTop:'-5rem'}}  >
      <Grid container > 
      
-      <Grid xs={12} sm={6} >
-        <Card sx={{margin:'7px', borderTop:`2px solid crimson`, height:'97%'}}>
-          <CardActionArea>
-            <CardContent>
-            <Typography gutterBottom variant="h5" component="div" color="crimson">
-                Personal Details
-              </Typography>
-              {PersonalData.map((text, index) => (
-                <Box sx={{display:'flex'}}>
-                  <Grid container>
-                    <Grid item xs={5}>
-                    <Typography gutterBottom variant="body1" component="div">
-                {text.title}
-              </Typography>
-                    </Grid>
-                    <Grid item xs={7}>
-                    <Typography variant="body1" color="text.secondary">
-              {text.subtitle}
-              </Typography>
-                    </Grid>
-                  </Grid>
-              
-              
-              </Box>
-              ))}
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </Grid>
-      <Grid xs={12} sm={6}>
-        <Card sx={{margin:'7px', borderTop:`2px solid darkorange`,}}>
-          <CardActionArea>
-            <CardContent>
-            <Typography gutterBottom variant="h5" component="div" color="darkorange">
-                My Interests
-              </Typography>
-              <Grid container >
-              {InterestData.map((text, index) => (
-                 
-                <Grid xs={6} sm={6} md={3} sx={{display:'flex',justifyContent:'center'}}>
-                <Box sx={{ marginY:'15px', }}>
-                  <Box sx={{    justifyContent: 'center',
-    display: 'flex'}}>
-                  <img
-                      src={text.image}
-                      style={{height:'70px', width:'70px', marginRight:'15px', justifyContent:'center', alignItems:'center'}}
-                      // alt={item.title}
-                      loading="lazy"
-                    />
-                  </Box>
-                    
-                    <Box sx={{marginY:'1rem'}}>
-                      <Typography variant="body1" >
-                        {text.title}
-                      </Typography>
-                      
-                     
-                    </Box>
-              </Box>
-              </Grid>
-              ))}</Grid>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </Grid>
+      
       <Grid xs={12} >
         <Card sx={{margin:'7px', borderTop:`2px solid lightgreen`}}>
           <CardActionArea>
             <CardContent>
             <Typography gutterBottom variant="h5" component="div" color="lightgreen">
-                Education
+                Work Experience
               </Typography>
               {EducationData.map((text, index) => (
                 <Box sx={{display:{sm:'flex'}, marginY:'15px',}}>
@@ -542,78 +476,7 @@ theme={theme}
           </CardActionArea>
         </Card>
       </Grid>
-      <Grid xs={12} sm={6} >
-        <Card sx={{margin:'7px', borderTop:`2px solid cyan`}}>
-          <CardActionArea>
-            <CardContent>
-            <Typography gutterBottom variant="h5" component="div" color="cyan">
-                Trainings
-              </Typography>
-              {TrainingData.map((text, index) => (
-                <Box sx={{display:{sm:'flex'}, marginY:'15px',}}>
-                  <Box sx={{width:{xs:'100%',sm:'auto'},justifyContent:'center', alignItems:'center',display:{xs:'flex',sm:'block'}}}>
-                  <img
-                      src={text.image}
-                      style={{height:'70px', width:'70px', marginRight:'15px', justifyContent:'center', alignItems:'center'}}
-                      // alt={item.title}
-                      loading="lazy"
-                    />
-                  </Box>
-                    
-                    <Box sx={{marginY:{xs:'1rem',sm:0}}}>
-                      <Typography variant="body1" >
-                        {text.title}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {text.subtitle}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {text.date}
-                      </Typography>
-                    </Box>
-              </Box>
-              ))}
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </Grid>
-      <Grid xs={12} sm={6}>
-        <Card sx={{margin:'7px', borderTop:`2px solid #f2c204`}}>
-          <CardActionArea>
-            <CardContent>
-            <Typography gutterBottom variant="h5" component="div" color="#f2c204">
-                Languages
-              </Typography>
-              <Grid container >
-              {LanguageData.map((text, index) => (
-                 
-                <Grid xs={6} sm={6} md={3} sx={{display:'flex',justifyContent:'center'}}>
-                <Box sx={{ marginY:'15px', }}>
-                  <Box >
-                  <img
-                      src={text.image}
-                      style={{height:'70px', width:'70px', marginRight:'15px', justifyContent:'center', alignItems:'center'}}
-                      // alt={item.title}
-                      loading="lazy"
-                    />
-                  </Box>
-                    
-                    <Box sx={{marginY:'1rem'}}>
-                      <Typography variant="body1" >
-                        {text.title}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {text.subtitle}
-                      </Typography>
-                     
-                    </Box>
-              </Box>
-              </Grid>
-              ))}</Grid>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </Grid>
+      
      </Grid>
      
    </Container>

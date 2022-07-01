@@ -5,6 +5,9 @@ import './App.css';
 import Home from "./pages/Home";
 import ProductList from "./pages/ProductList";
 import About from "./pages/About";
+import Skill from "./pages/Skill";
+import Work from "./pages/Work";
+import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
 import { ColorModeContext } from './constants/color-context';
 import Alert from '@mui/material/Alert';
@@ -77,9 +80,12 @@ function App() {
    
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
+        <Box sx={{display:'flex', justifyContent:'center',paddingTop:'10px'}}>
+        <Alert severity="info" sx={{justifyContent:'center',display:'flex', width:'50%', borderRadius:'15px',}}>Portfolio under construction !!</Alert>
+        </Box>
       
-      <SimpleBar style={{ height: 'calc(100% - 6rem)'}}>
-      <Alert severity="info" sx={{justifyContent:'center',display:'flex'}}>Portfolio under construction !!</Alert>
+      {/* <SimpleBar style={{ height: 'calc(100% - 6rem)'}}>  */}
+      
             <BrowserRouter>
               <Box sx={{ display: 'flex'}}>
                 <CssBaseline />
@@ -91,14 +97,17 @@ function App() {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/projects" element={<ProductList/>}/>  
                 <Route path="/about" element={<About/>}/>  
-                <Route path="/cart" element={<Cart/>}/>  
+                <Route path="/skill" element={<Skill/>}/>  
+                <Route path="/work" element={<Work/>}/>  
+                <Route path="/contact" element={<Contact/>}/>  
                 <Route path="/project/:id" element={<Product/>}/>
+                <Route path="/cart" element={<Cart/>}/>  
                   
               </Routes>
               {/* <Footer/> */}
               </Box>
           </BrowserRouter>    
-          </SimpleBar>
+          {/* </SimpleBar> */}
     </ThemeProvider>
     </ColorModeContext.Provider>
     

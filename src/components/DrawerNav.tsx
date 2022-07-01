@@ -66,9 +66,9 @@ const drawerWidthFull = '100%';
 const navData=[
   {'title':'Home', 'link':'/'},
   {'title':'About', 'link':'/about'},
-  {'title':'My Skills', 'link':'/projects'},
-  {'title':'Work', 'link':'/projects'},
-  {'title':'contact', 'link':'/projects'} ]
+  {'title':'My Skills', 'link':'/skill'},
+  {'title':'Work', 'link':'/work'},
+  {'title':'contact', 'link':'/contact'} ]
 
 
 const blue2 = {
