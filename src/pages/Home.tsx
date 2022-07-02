@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useEffect, useState, useRef,useMemo, useCallback } from "react";
-// import Announcement from "../components/Announcement";
+import BackgroundText from "../components/BackgroundText";
 // import Categories from "../components/Categories";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import TextField from '@mui/material/TextField';
@@ -391,7 +391,8 @@ theme={theme}
       {/* -------------------------------------------- Second grid --------------------------------------------------- */}
 
     <Box style={{position:'relative', overflow: 'hidden', paddingTop:'3rem',paddingBottom:'10rem'}}>
-      <Box className="back-text">WORK</Box>
+      {/* <Box className="back-text" sx={{color: theme.palette.mode === 'dark' ?'rgba(255,255,255,0.04)':'rgba(78,78,78,0.15)'}}>WORK</Box> */}
+      <BackgroundText theme={theme} text={'Work'}/>
       <Grid container sx={{paddingX: {xs:'2.5rem',md:'4.5rem'}, marginBottom:'5rem'}}>
         <Grid item xs={12} md={8}>
       <Slide direction="up" in={checked} container={containerRef.current}>
@@ -467,7 +468,7 @@ theme={theme}
           {/* -------------------------------------------- Third grid --------------------------------------------------- */}
 
           <Box style={{position:'relative', overflow: 'hidden', paddingTop:'5rem',paddingBottom:'10rem'}}>
-          <Box className="back-text-third">Blog</Box>
+          <BackgroundText theme={theme} text={'Blog'}/>
                 <Grid container sx={{paddingX: {xs:'2.5rem',md:'4.5rem'}, marginBottom:'5rem'}}>
                   <Grid item xs={12} md={6} sx={{display:'flex', alignItems:'center'}}>
                 <Slide direction="up" in={checked} container={containerRef.current}>
@@ -507,7 +508,7 @@ theme={theme}
    <Container maxWidth="xl" sx={{marginTop:'-5rem'}}>
      <Grid container > 
      {blogData.map((text, index) => (
-      <Grid xs={4} >
+      <Grid xs={6} sm={4}>
         <Card sx={{margin:'7px', borderTop:`2px solid  ${text.color}`}}>
           <CardActionArea>
             <CardContent>

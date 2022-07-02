@@ -117,8 +117,8 @@ const DrawerNav= (props:any) => {
     
     return(
       <Box sx={{height:'100vh', justifyContent:'space-between', display:'flex', flexDirection:'column'}}>
-      <Box sx={{  padding:'20px', height:'7rem', display:{xs:'flex', md:'block'}, justifyContent:'center'}}>
-                  
+      <Box sx={{  padding:'20px', height:'7rem', display:{xs:'flex', md:'block'}, justifyContent:'space-between'}}>
+                  <Box sx={{marginY:'10px'}}>
                   <h1 className="logoText">
                     {/* <h1 className={theme.palette.mode === 'dark' ? "neonText":"logoText"}> */}
                     Prasanna
@@ -127,14 +127,10 @@ const DrawerNav= (props:any) => {
                     {/* <h1 className={theme.palette.mode === 'dark' ? "neonText":"logoText"}> */}
                    Tuladhar
                     </h1>
-              </Box>
-                    
-             
-              <List>
-              <Box
-                  sx={{justifyContent:'center',alignItem:'center',display: { xs: 'flex', md: 'none' },color: 'text.primary',marginBottom:'2rem'}}>
-                 <IconButton
-                    sx={{margin:0}}
+                  </Box>
+                  <Box sx={{display: {  md: 'none' }}}>
+                  <IconButton
+                    sx={{marginRight:'7px'}}
                     edge="start"
                     color="inherit"
                     aria-label="close drawer"
@@ -144,12 +140,19 @@ const DrawerNav= (props:any) => {
                     // onClick={() => alert('fsdfs')}
                     
                   >
-                    <CancelOutlinedIcon fontSize='large'/>
+                    <CancelOutlinedIcon sx={{margin:'0', padding:'0'}} fontSize='large'/>
                   </IconButton>
-                  
-                  
+                  </Box>
+                 
+              </Box>
+                    
+             
+              <List>
+              <Box
+                  sx={{justifyContent:'center',alignItem:'center',display: { xs: 'flex', md: 'none' },color: 'text.primary',marginBottom:'2rem'}}>
+                 
                   </Box> 
-                  <Box  sx={{  justifyContent:'center', display: { xs: 'flex', md: 'none' }, color: 'text.primary', }}>
+                  <Box  sx={{  justifyContent:'center', marginBottom:'20px', display: { xs: 'flex', md: 'none' }, color: 'text.primary', }}>
                   <Box>
                   
                     <IconButton size="large" aria-label="show 4 new mails" color="inherit"

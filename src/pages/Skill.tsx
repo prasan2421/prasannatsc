@@ -5,7 +5,7 @@ import { useEffect, useState, useRef,useMemo, useCallback } from "react";
 // import Categories from "../components/Categories";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import TextField from '@mui/material/TextField';
-
+import BackgroundText from "../components/BackgroundText";
 // import TextareaAutosize from '@mui/material/TextareaAutosize';
 // import Newsletter from "../components/Newsletter";
 // import Products from "../components/Products";
@@ -457,7 +457,7 @@ theme={theme}
       {/* -------------------------------------------- First grid --------------------------------------------------- */}
 
     <Box style={{position:'relative', overflow: 'hidden', paddingTop:'6rem',paddingBottom:'10rem'}}>
-      <Box className="back-text">Skills</Box>
+    <BackgroundText theme={theme} text={'Skills'}/>
       <Grid container sx={{paddingX: {xs:'2.5rem',md:'4.5rem'}, marginBottom:'5rem'}}>
         <Grid item xs={12} lg={8}>
       <Slide direction="up" in={checked} container={containerRef.current}>

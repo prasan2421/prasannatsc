@@ -25,7 +25,7 @@ import Backdrop from '@mui/material/Backdrop';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Send from '@mui/icons-material/Send';
 import Zoom from '@mui/material/Zoom';
-
+import BackgroundText from "../components/BackgroundText";
 // import Typography from '@mui/material/Typography';
 import Grow from '@mui/material/Grow';
 import Slide from '@mui/material/Slide';
@@ -402,7 +402,7 @@ theme={theme}
       {/* -------------------------------------------- First grid --------------------------------------------------- */}
 
     <Box style={{position:'relative', overflow: 'hidden', paddingTop:'6rem',paddingBottom:'10rem'}}>
-      <Box className="back-text">Contact</Box>
+    <BackgroundText theme={theme} text={'Contact'}/>
       <Grid container sx={{paddingX: {xs:'2.5rem',md:'4.5rem'}, marginBottom:'5rem'}}>
         <Grid item xs={12} lg={8}>
       <Slide direction="up" in={checked} container={containerRef.current}>
