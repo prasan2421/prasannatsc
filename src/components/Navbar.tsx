@@ -46,7 +46,9 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 
-import { actions } from '../redux/counterSlice';
+// import { actions } from '../redux/counterSlice';
+import { useAppDispatch, useAppSelector } from '../redux/hooks'
+import { increment } from '../redux/counterSlice';
 
 const drawerWidth = 200;
 
@@ -171,7 +173,7 @@ interface AppBarProps extends MuiAppBarProps {
 
 
 const Navbar= (props:any) => {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   const [checked, setChecked] = React.useState(true);
   
   const theme = useTheme();
@@ -309,6 +311,7 @@ const Navbar= (props:any) => {
   //   setState({ ...state, [anchor]: open });
   // };
 
+  const dispatch = useAppDispatch();
  
 return (
   
@@ -368,7 +371,7 @@ return (
               aria-label="open drawer"
               sx={{  ...(open && { display: 'none' }) }}
               // onClick={toggleDrawer('top', true)}
-              onClick={() => dispatch(actions.increment())}
+              onClick={() => dispatch(increment())}
               // onClick={() => alert('fsdfs')}
               
             >

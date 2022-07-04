@@ -6,6 +6,7 @@ import BackgroundText from "../components/BackgroundText";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import TextField from '@mui/material/TextField';
 
+
 // import TextareaAutosize from '@mui/material/TextareaAutosize';
 // import Newsletter from "../components/Newsletter";
 // import Products from "../components/Products";
@@ -14,6 +15,7 @@ import { styled, alpha, ThemeProvider, createTheme, useTheme,responsiveFontSizes
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+
 import prasannapng from '../assets/images/prasannapng.png';
 import IconButton from '@mui/material/IconButton';
 import MobileStepper from '@mui/material/MobileStepper';
@@ -55,6 +57,7 @@ import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 
+// import cv from '../../public/PrasannaCV.pdf';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -344,6 +347,7 @@ const Home = () => {
   };
  
   
+  
   return (
     <ThemeProvider 
 theme={theme}
@@ -378,7 +382,7 @@ theme={theme}
             <Box className='subTitle'><Typography variant="subtitle1">Front End developer</Typography></Box>
             <Box  sx={{marginTop:'50px', }}>
                     <CustomButton variant="outlined" onClick={handleOpen} sx={{width:{xs:'100%',sm:'auto'}}}>Contact Me</CustomButton>
-                    <CustomButton sx={{width:{xs:'100%',sm:'auto'},marginLeft:{sm:'1rem'}, marginTop:{xs:'10px',sm:'0'}}} variant="contained" endIcon={<DownloadIcon />} onClick={handleOpen}>CV</CustomButton>
+                    <Link href={require("../assets/files/PrasannaCV.pdf")} download underline="none"><CustomButton sx={{width:{xs:'100%',sm:'auto'},marginLeft:{sm:'1rem'}, marginTop:{xs:'10px',sm:'0'}}} variant="contained" endIcon={<DownloadIcon />} >CV</CustomButton></Link>
                   </Box>
                 <Box>
                 </Box>

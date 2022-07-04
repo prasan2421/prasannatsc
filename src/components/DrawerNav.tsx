@@ -48,11 +48,13 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import { RootStateOrAny, useSelector, useDispatch } from 'react-redux'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
-import { actions } from '../redux/counterSlice';
+// import { actions } from '../redux/counterSlice';
+
 
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import { decrement } from '../redux/counterSlice';
 
 
 const drawerWidth = 150;
@@ -113,7 +115,7 @@ const DrawerNav= (props:any) => {
   const menuId = 'primary-search-account-menu';
   
 
-  const drawerContentWeb=(colorMode:any)=>{
+  const drawerContentWeb=(colorMode:any, dispatch:any)=>{
     
     return(
       <Box sx={{height:'100vh', justifyContent:'space-between', display:'flex', flexDirection:'column'}}>
@@ -136,7 +138,7 @@ const DrawerNav= (props:any) => {
                     aria-label="close drawer"
                    
                     // onClick={toggleDrawer('top', true)}
-                    onClick={() => dispatch(actions.decrement())}
+                    onClick={() => dispatch(decrement())}
                     // onClick={() => alert('fsdfs')}
                     
                   >
@@ -190,7 +192,7 @@ const DrawerNav= (props:any) => {
                    <Divider />
                   <ListItem key={index} disablePadding>
                    
-                    <NavLink onClick={() => dispatch(actions.decrement())} to={`${text.link}`}  style={{textDecoration:'none',fontSize:'18px',width:'100%',color:'inherit'}} className={(navData)=>(navData.isActive?'textActive':'textInactive')}>
+                    <NavLink onClick={() => dispatch(decrement())} to={`${text.link}`}  style={{textDecoration:'none',fontSize:'18px',width:'100%',color:'inherit'}} className={(navData)=>(navData.isActive?'textActive':'textInactive')}>
                
                     <ListItemButton style={{justifyContent:'space-between',}}>
                         <Box>{text.title}</Box>
@@ -231,16 +233,17 @@ const DrawerNav= (props:any) => {
     )
   }
 
-   
+   const action = useAppSelector((state)=>state.counter.value)
 
    
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
 
   const toggle = useAppSelector((state:any) => state.counter.value)
-  const dispatch = useAppDispatch()
+  
 
   const colorMode = React.useContext(ColorModeContext);
+  const dispatch = useAppDispatch();
   
 return (
   
@@ -262,7 +265,7 @@ return (
         variant="permanent"
         anchor="left"
       >
-         {drawerContentWeb(colorMode)}
+         {drawerContentWeb(colorMode,action)}
       </Drawer>
       <Drawer
        className='drawerStyleSmall'
@@ -272,11 +275,11 @@ return (
       }}
             anchor={'top'}
             open={toggle}
-            onClose={() => dispatch(actions.decrement())}
+            onClose={() => dispatch(decrement())}
           >
           
          
-{drawerContentWeb(colorMode)}
+            {drawerContentWeb(colorMode,dispatch)}
       </Drawer>
         
       {/* --------------------------- full width drawer ------------------------------ */}
