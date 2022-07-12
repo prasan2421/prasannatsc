@@ -7,7 +7,7 @@ import { useState,useContext, createContext } from "react";
 
 // import { useSelector } from "react-redux";
 import { Navigate, NavLink,useNavigate } from "react-router-dom";
-
+import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import { styled, alpha, ThemeProvider, createTheme, useTheme } from '@mui/material/styles';
 import PropTypes from 'prop-types';
 import ButtonUnstyled, { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
@@ -170,13 +170,14 @@ const DrawerNav= (props:any) => {
                         {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
                      
                     </IconButton>
-                    <IconButton  to="/cart"  component={NavLink} 
+                    <IconButton 
+                    //  to="/cart"  component={NavLink} 
                       size="large"
                       aria-label="show 4 new notifications"
                       color="inherit"
                     >
                       <Badge badgeContent={17} color="error">
-                        <LocalMallIcon />
+                      <EmojiEmotionsIcon />
                       </Badge>
                     </IconButton>
                     <IconButton
@@ -185,7 +186,7 @@ const DrawerNav= (props:any) => {
                       // onClick={handleProfileMenuOpen}
                       color="inherit"
                     >
-                      <Badge badgeContent={17} color="error">
+                      <Badge  color="error">
                       <AccountCircle />
                       </Badge>
                     </IconButton>

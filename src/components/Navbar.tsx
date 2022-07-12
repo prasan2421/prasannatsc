@@ -338,7 +338,9 @@ return (
                   {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
                
               </IconButton>
-              <IconButton  to="/cart"  component={NavLink} 
+              <IconButton  
+              // to="/cart"  
+              // component={NavLink} 
                 size="large"
                 aria-label="show 4 new notifications"
                 color="inherit"
