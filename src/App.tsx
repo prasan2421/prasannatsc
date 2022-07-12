@@ -57,6 +57,13 @@ function App() {
     () =>
       createTheme({
         palette: {
+          // primary: {
+          //   main: '#2cb7fd',
+            
+          // },
+          // secondary: {
+          //   main: '#f44335',
+          // },
           mode,
           ...(mode === "dark" && {
             background: {
@@ -93,7 +100,9 @@ function App() {
               
               <Navbar/>
               <Drawer/>
+              
               <Routes>
+                
                 <Route path="/" element={<Home/>}/>
                 <Route path="/projects" element={<ProductList/>}/>  
                 <Route path="/about" element={<About/>}/>  

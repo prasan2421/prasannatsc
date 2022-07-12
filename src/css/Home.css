@@ -38,7 +38,7 @@ h1,h2{
 
 .ContainerWrapper-base{
   
-  position:absolute;
+  position:relative;
   font-family: 'La Belle Aurore',cursive;
   color: #515152;
   font-size: 1.2rem;

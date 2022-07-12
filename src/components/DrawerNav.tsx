@@ -6,7 +6,7 @@ import { useState,useContext, createContext } from "react";
 // import styled from "styled-components";
 
 // import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink,useNavigate } from "react-router-dom";
 
 import { styled, alpha, ThemeProvider, createTheme, useTheme } from '@mui/material/styles';
 import PropTypes from 'prop-types';
@@ -55,6 +55,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { decrement } from '../redux/counterSlice';
+import { AnyAction } from 'redux';
 
 
 const drawerWidth = 150;
@@ -104,6 +105,11 @@ const DrawerNav= (props:any) => {
 
     setState({ ...state, [anchor]: open });
   };
+
+  const nav=(navLink:any)=>{
+    dispatch(decrement())
+    navigate(navLink, { replace: true })
+  }
 
   
 
@@ -190,9 +196,9 @@ const DrawerNav= (props:any) => {
                 {navData.map((text, index) => (
                   <>
                    <Divider />
-                  <ListItem key={index} disablePadding>
+                  <ListItem  key={index} disablePadding>
                    
-                    <NavLink onClick={() => dispatch(decrement())} to={`${text.link}`}  style={{textDecoration:'none',fontSize:'18px',width:'100%',color:'inherit'}} className={(navData)=>(navData.isActive?'textActive':'textInactive')}>
+                    <NavLink onClick={() => nav(`${text.link}`) } to={`${text.link}`}  style={{textDecoration:'none',fontSize:'18px',width:'100%',color:'inherit'}} className={(navData)=>(navData.isActive?'textActive':'textInactive')}>
                
                     <ListItemButton style={{justifyContent:'space-between',}}>
                         <Box>{text.title}</Box>
@@ -244,6 +250,7 @@ const DrawerNav= (props:any) => {
 
   const colorMode = React.useContext(ColorModeContext);
   const dispatch = useAppDispatch();
+  let navigate = useNavigate();
   
 return (
   

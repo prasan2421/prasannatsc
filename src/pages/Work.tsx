@@ -394,7 +394,7 @@ theme={theme}
     <Box className={styles.main} component="main" sx={{ color: 'text.primary', flexGrow:1, marginBottom:'15px' }}>  
     <Box className={styles.ContainerWrapper} sx={{marginX:{ xs: '0.1rem', md:'1rem' },}}>{'<html>'}</Box>
     {renderForm}
-    <Box>
+    <Box sx={{marginBottom:'7rem'}}>
     
       
       {/* -------------------------------------------- First grid --------------------------------------------------- */}
@@ -490,7 +490,8 @@ theme={theme}
     
     </Box>
       
-     
+    <Box className='ContainerWrapper-base' sx={{marginX:{ xs: '0.1rem', md:'1rem' },}}>{'</html>'}</Box>
+
       {/* Grid */}
      
       

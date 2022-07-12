@@ -396,7 +396,7 @@ theme={theme}
     <Box className={styles.main} component="main" sx={{ color: 'text.primary', flexGrow:1, marginBottom:'15px' }}>  
     <Box className={styles.ContainerWrapper} sx={{marginX:{ xs: '0.1rem', md:'1rem' },}}>{'<html>'}</Box>
     {renderForm}
-    <Box>
+    <Box  sx={{marginBottom:'7rem'}}>
     
       
       {/* -------------------------------------------- First grid --------------------------------------------------- */}
@@ -439,10 +439,10 @@ theme={theme}
           {/* -------------------------------------------- Second grid --------------------------------------------------- */}
    <Box sx={{position:'relative'}}>
      <Box className={styles.AboutDiv}>
-     <Box sx={{position:'relative', overflow: 'hidden', paddingY:'5rem',}}>
+     <Box sx={{position:'relative', overflow: 'hidden', }}>
           
           <Grid container sx={{paddingX: {xs:'2.5rem',md:'4.5rem'}}} spacing={4}>
-            <Grid item xs={12} md={6} sx={{display:'flex', alignItems:'center'}}>
+            <Grid item xs={12} md={6}>
           <Slide direction="up" in={checked} container={containerRef.current}>
                   <Box sx={{ color: 'text.primary'}} >
                 {/* <Box className="PortfolioTitle">
@@ -487,7 +487,7 @@ theme={theme}
             </Grid>
             
             </Grid>
-            <Box className='ContainerWrapper-base' sx={{marginX:{ xs: '0.1rem', md:'1rem' },}}>{'</html>'}</Box>
+           
         </Box>
 
      </Box>
@@ -499,7 +499,8 @@ theme={theme}
     
     
     </Box>
-      
+    <Box className='ContainerWrapper-base' sx={{marginX:{ xs: '0.1rem', md:'1rem' },}}>{'</html>'}</Box>
+
      
       {/* Grid */}
      

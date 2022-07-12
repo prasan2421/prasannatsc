@@ -396,7 +396,7 @@ theme={theme}
     <Box className={styles.main} component="main" sx={{ color: 'text.primary', flexGrow:1, marginBottom:'15px' }}>  
     <Box className={styles.ContainerWrapper} sx={{marginX:{ xs: '0.1rem', md:'1rem' },}}>{'<html>'}</Box>
     {renderForm}
-    <Box>
+    <Box sx={{marginBottom:'7rem'}}>
     
       
       {/* -------------------------------------------- First grid --------------------------------------------------- */}
@@ -444,27 +444,22 @@ theme={theme}
      
       <Grid xs={12} sm={6} >
         <Card sx={{margin:'7px', borderTop:`2px solid crimson`, height:'97%'}}>
-          <CardActionArea>
+          <CardActionArea sx={{height:'100%', display:'contents'}}>
             <CardContent>
             <Typography gutterBottom variant="h5" component="div" color="crimson">
                 Personal Details
               </Typography>
               {PersonalData.map((text, index) => (
-                <Box sx={{display:'flex'}}>
-                  <Grid container>
-                    <Grid item xs={5}>
-                    <Typography gutterBottom variant="body1" component="div">
+                <Box sx={{marginTop:'10px'}}>
+                  
+                    <Typography gutterBottom variant="body2" component="div">
                 {text.title}
               </Typography>
-                    </Grid>
-                    <Grid item xs={7}>
-                    <Typography variant="body1" color="text.secondary">
+                    
+                    <Typography variant="body1" color="text.secondary" >
               {text.subtitle}
               </Typography>
-                    </Grid>
-                  </Grid>
-              
-              
+                
               </Box>
               ))}
             </CardContent>
@@ -487,14 +482,14 @@ theme={theme}
     display: 'flex'}}>
                   <img
                       src={text.image}
-                      style={{height:'70px', width:'70px', marginRight:'15px', justifyContent:'center', alignItems:'center'}}
+                      style={{height:'70px', width:'70px',  justifyContent:'center', alignItems:'center'}}
                       // alt={item.title}
                       loading="lazy"
                     />
                   </Box>
                     
                     <Box sx={{marginY:'1rem'}}>
-                      <Typography variant="body1" >
+                      <Typography variant="body1" sx={{justifyContent:'center', display:'flex'}}>
                         {text.title}
                       </Typography>
                       
@@ -543,7 +538,7 @@ theme={theme}
         </Card>
       </Grid>
       <Grid xs={12} sm={6} >
-        <Card sx={{margin:'7px', borderTop:`2px solid cyan`}}>
+        <Card sx={{margin:'7px', borderTop:`2px solid cyan`, height:'97%'}}>
           <CardActionArea>
             <CardContent>
             <Typography gutterBottom variant="h5" component="div" color="cyan">
@@ -626,7 +621,7 @@ theme={theme}
     
     
     </Box>
-      
+    <Box className='ContainerWrapper-base' sx={{marginX:{ xs: '0.1rem', md:'1rem' },}}>{'</html>'}</Box>
      
       {/* Grid */}
      

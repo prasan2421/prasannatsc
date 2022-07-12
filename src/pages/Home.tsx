@@ -5,8 +5,20 @@ import BackgroundText from "../components/BackgroundText";
 // import Categories from "../components/Categories";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import TextField from '@mui/material/TextField';
-
-
+import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
+import Tooltip from '@mui/material/Tooltip';
+import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
+import SpeedDial from '@mui/material/SpeedDial';
+import SpeedDialIcon from '@mui/material/SpeedDialIcon';
+import SpeedDialAction from '@mui/material/SpeedDialAction';
+import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+import SaveIcon from '@mui/icons-material/Save';
+import PrintIcon from '@mui/icons-material/Print';
+import ShareIcon from '@mui/icons-material/Share';
+import AddReactionIcon from '@mui/icons-material/AddReaction';
+import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
+// import Zoom from '@mui/material/Zoom';
 // import TextareaAutosize from '@mui/material/TextareaAutosize';
 // import Newsletter from "../components/Newsletter";
 // import Products from "../components/Products";
@@ -26,6 +38,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Backdrop from '@mui/material/Backdrop';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Send from '@mui/icons-material/Send';
+import EditIcon from '@mui/icons-material/Edit';
+
 import Zoom from '@mui/material/Zoom';
 import DownloadIcon from '@mui/icons-material/Download';
 // import Typography from '@mui/material/Typography';
@@ -47,6 +61,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
 import '../css/Home.css';
 import Alert from '@mui/material/Alert';
+
 import FormControlLabel from '@mui/material/FormControlLabel';
 import TagSphere from "../components/wordSphere";
 import MyMaps from "../components/maps";
@@ -67,7 +82,12 @@ import 'swiper/css/scrollbar';
 
 // const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
-
+const actions = [
+  { icon: <FileCopyIcon />, name: 'Copy' },
+  { icon: <SaveIcon />, name: 'Save' },
+  { icon: <PrintIcon />, name: 'Print' },
+  { icon: <ShareIcon />, name: 'Share' },
+];
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -201,11 +221,12 @@ interface FadeProps {
 }
 
 const style = {
-  position: 'absolute' as 'absolute',
+  position: 'absolute' ,
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 500,
+  width:{xs:'100%',sm:'auto'},
+  
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -228,7 +249,7 @@ const Home = () => {
   const matches = useMediaQuery('(min-width:600px)');
   const [checkedZoom, setCheckedZoom] = React.useState(null);
   const [mouseOverItem, setMouseOverItem] = React.useState(null);
-  
+  const [openEmoji, setOpenEmoji] = React.useState(false);
   const [checkedImage, setCheckedImage] = React.useState(true);
   const [activeStep, setActiveStep] = React.useState(0);
   
@@ -278,7 +299,7 @@ const Home = () => {
   >
     <Fade in={open}>
       <Box sx={style}  component="form"
-     
+    
       noValidate
       autoComplete="off">
       <Container>
@@ -287,8 +308,8 @@ const Home = () => {
         <h1>Contact Me</h1>
         </Box>
         
-        <TextField id="outlined-basic" label="Name" variant="outlined" style={{ width:'50%', marginBottom:'10px' , paddingRight:'5px'}}/>
-                        <TextField id="outlined-basic" label="Email" variant="outlined" style={{width:'50%', marginBottom:'10px',paddingLeft:'5px' }}/>
+        <TextField id="outlined-basic" label="Name" variant="outlined" sx={{ width:{xs: '100%',sm:'100%', md:'50%'}, marginBottom:'10px' , paddingRight:{sm:0,md:'5px'}}}/>
+                        <TextField id="outlined-basic" label="Email" variant="outlined" sx={{width:{xs: '100%',sm:'100%', md:'50%'}, marginBottom:'10px',paddingLeft:{sm:0,md:'5px'} }}/>
 
                         <TextField id="outlined-basic" label="Subject" variant="outlined" style={{display:'flex', width:'100%', marginBottom:'10px' }}/>
                         <TextField
@@ -345,6 +366,10 @@ const Home = () => {
   const handlePopoverOpen = (index:any) => {
     setMouseOverItem(index)
   };
+
+  
+  const handleOpenEmoji = () => setOpenEmoji(true);
+  const handleCloseEmoji = () => setOpenEmoji(false);
  
   
   
@@ -357,6 +382,30 @@ theme={theme}
     <Box className='ContainerWrapper' sx={{marginX:{ xs: '0.1rem', md:'1rem' },}}>{'<html>'}</Box>
     {renderForm}
     <Box>
+    <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={openEmoji}
+        onClose={handleCloseEmoji}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={openEmoji}>
+          <Box sx={style}>
+            <Typography id="transition-modal-title" variant="h6" component="h2">
+              What's your reaction ?
+            </Typography>
+            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+            <InsertEmoticonIcon sx={{ color: 'yellow' }}/>
+            <SentimentSatisfiedIcon sx={{ color: 'yellow' }}/>
+            <SentimentVeryDissatisfiedIcon sx={{ color: 'yellow' }}/>
+            </Typography>
+          </Box>
+        </Fade>
+      </Modal>
     
       {/* -------------------------------------------- first grid --------------------------------------------------- */}
     <Grid container sx={{height:'100vh',paddingX: {xs:'2.5rem',md:'4.5rem'}}}>  
@@ -379,10 +428,17 @@ theme={theme}
              
               
             </Box>
-            <Box className='subTitle'><Typography variant="subtitle1">Front End developer</Typography></Box>
-            <Box  sx={{marginTop:'50px', }}>
+          <Box className='subTitle'><Typography variant="subtitle1">Front End developer | React | React Native</Typography></Box>
+            <Box  sx={{marginTop:'50px', display:{sm:'flex'},  }}>
                     <CustomButton variant="outlined" onClick={handleOpen} sx={{width:{xs:'100%',sm:'auto'}}}>Contact Me</CustomButton>
-                    <Link href={require("../assets/files/PrasannaCV.pdf")} download underline="none"><CustomButton sx={{width:{xs:'100%',sm:'auto'},marginLeft:{sm:'1rem'}, marginTop:{xs:'10px',sm:'0'}}} variant="contained" endIcon={<DownloadIcon />} >CV</CustomButton></Link>
+                    <Box sx={{display:{xs:'flex'}, alignItems:{sm:'center'}, width:{xs:'100%',sm:'auto'},marginTop:{xs:'10px',sm:'0'} }}>
+                      <Link href={require("../assets/files/PrasannaCV.pdf")} sx={{width:{xs:'inherit'}}} download underline="none"><CustomButton sx={{width:{xs:'inherit',sm:'auto'},marginX:{sm:'1rem'}, }} variant="contained" endIcon={<DownloadIcon />} >CV</CustomButton></Link>
+                      <Box onClick={handleOpenEmoji} sx={{display:'flex', alignItems:'center'}}>
+                        <AddReactionIcon   sx={{fontSize:'50px',color: 'yellow'}}/>
+                      </Box>
+                    </Box>
+                    
+                    
                   </Box>
                 <Box>
                 </Box>
@@ -561,8 +617,8 @@ theme={theme}
                       <Typography variant="body1">I'm interested in part time / full time or freelance work opportunities- especially ambitious or large projects. However, if you have other request or question, don't hesitate to use the form.</Typography>
                         </Box>
                         <Box className='formBelow'>
-                        <TextField id="outlined-basic" label="Name" variant="outlined" style={{ width:'50%', marginBottom:'10px' , paddingRight:'5px'}}/>
-                        <TextField id="outlined-basic" label="Email" variant="outlined" style={{width:'50%', marginBottom:'10px',paddingLeft:'5px' }}/>
+                        <TextField id="outlined-basic" label="Name" variant="outlined" sx={{ width:{sm:'100%', md:'50%'}, marginBottom:'10px' , paddingRight:'5px'}}/>
+                        <TextField id="outlined-basic" label="Email" variant="outlined" sx={{width:{sm:'100%', md:'50%'}, marginBottom:'10px',paddingLeft:'5px' }}/>
 
                         <TextField id="outlined-basic" label="Subject" variant="outlined" style={{display:'flex', width:'100%', marginBottom:'10px' }}/>
                         <TextField
@@ -591,13 +647,13 @@ theme={theme}
                   </Grid>
                   
                   </Grid>
-                  <Box className='ContainerWrapper-base' sx={{marginX:{ xs: '0.1rem', md:'1rem' },}}>{'</html>'}</Box>
+                  
               </Box>
    
           {/* -------------------------------------------- Fifth grid end--------------------------------------------------- */}
    
     </Box>
-      
+    <Box className='ContainerWrapper-base' sx={{marginX:{ xs: '0.1rem', md:'1rem' },}}>{'</html>'}</Box>
      
       {/* Grid */}
      

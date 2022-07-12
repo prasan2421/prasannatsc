@@ -6,8 +6,8 @@ import { useState,useContext } from "react";
 // import styled from "styled-components";
 
 // import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, useNavigate} from "react-router-dom";
+import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import { styled, alpha, ThemeProvider, createTheme, useTheme } from '@mui/material/styles';
 import PropTypes from 'prop-types';
 import ButtonUnstyled, { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
@@ -205,6 +205,7 @@ const Navbar= (props:any) => {
   };
 
   const handleMenuClose = () => {
+    navigate("/about", { replace: true });
     setAnchorEl(null);
     handleMobileMenuClose();
   };
@@ -312,6 +313,7 @@ const Navbar= (props:any) => {
   // };
 
   const dispatch = useAppDispatch();
+  let navigate = useNavigate();
  
 return (
   
@@ -342,18 +344,19 @@ return (
                 color="inherit"
               >
                 <Badge badgeContent={17} color="error">
-                  <LocalMallIcon />
+                  <EmojiEmotionsIcon />
                 </Badge>
               </IconButton>
               <IconButton
+              
                 size="large"
                 aria-label="show 17 new notifications"
-                onClick={handleProfileMenuOpen}
+                onClick={handleProfileMenuOpen }
                 color="inherit"
               >
-                <Badge badgeContent={17} color="error">
+                
                 <AccountCircle />
-                </Badge>
+                
               </IconButton>
               
   
