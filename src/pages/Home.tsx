@@ -3,6 +3,8 @@ import React from "react";
 import { useEffect, useState, useRef,useMemo, useCallback } from "react";
 import BackgroundText from "../components/BackgroundText";
 // import Categories from "../components/Categories";
+import IconButton from '@mui/material/IconButton';
+import Stack from '@mui/material/Stack';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import TextField from '@mui/material/TextField';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
@@ -15,6 +17,7 @@ import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import SaveIcon from '@mui/icons-material/Save';
 import PrintIcon from '@mui/icons-material/Print';
+import Chip from '@mui/material/Chip';
 import ShareIcon from '@mui/icons-material/Share';
 import AddReactionIcon from '@mui/icons-material/AddReaction';
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
@@ -29,7 +32,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
 import prasannapng from '../assets/images/prasannapng.png';
-import IconButton from '@mui/material/IconButton';
+
 import MobileStepper from '@mui/material/MobileStepper';
 import Paper from '@mui/material/Paper';
 import Modal from '@mui/material/Modal';
@@ -396,13 +399,23 @@ theme={theme}
         <Fade in={openEmoji}>
           <Box sx={style}>
             <Typography id="transition-modal-title" variant="h6" component="h2">
-              What's your reaction ?
+              What's your reaction? (Select one or more)
             </Typography>
-            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-            <InsertEmoticonIcon sx={{ color: 'yellow' }}/>
-            <SentimentSatisfiedIcon sx={{ color: 'yellow' }}/>
-            <SentimentVeryDissatisfiedIcon sx={{ color: 'yellow' }}/>
-            </Typography>
+            <Stack direction="row" alignItems="center" spacing={2}>
+              <IconButton color="primary" aria-label="upload picture" component="label">
+                
+                <InsertEmoticonIcon sx={{color:'#ffd100'}}/>
+              </IconButton>
+              <IconButton color="primary" aria-label="upload picture" component="label">
+                
+                <SentimentSatisfiedIcon sx={{color:'#ffd100'}} />
+              </IconButton>
+              <IconButton color="primary" aria-label="upload picture" component="label">
+                
+                <SentimentVeryDissatisfiedIcon sx={{color:'#ffd100'}} />
+              </IconButton>
+            </Stack>
+            
           </Box>
         </Fade>
       </Modal>
@@ -423,23 +436,30 @@ theme={theme}
               </Grow>
               <Grow in={checked} style={{ transformOrigin: '0 0 0' }} className='introTextLast'
                   {...(checked ? { timeout: 2000 } : {})}>
-                      <Typography variant="h1">web & mobile developer</Typography>
+                      <Typography variant="h1">Front-end Developer</Typography>
               </Grow>
              
               
             </Box>
-          <Box className='subTitle'><Typography variant="subtitle1">Front End developer | React | React Native</Typography></Box>
-            <Box  sx={{marginTop:'50px', display:{sm:'flex'},  }}>
-                    <CustomButton variant="outlined" onClick={handleOpen} sx={{width:{xs:'100%',sm:'auto'}}}>Contact Me</CustomButton>
-                    <Box sx={{display:{xs:'flex'}, alignItems:{sm:'center'}, width:{xs:'100%',sm:'auto'},marginTop:{xs:'10px',sm:'0'} }}>
-                      <Link href={require("../assets/files/PrasannaCV.pdf")} sx={{width:{xs:'inherit'}}} download underline="none"><CustomButton sx={{width:{xs:'inherit',sm:'auto'},marginX:{sm:'1rem'}, }} variant="contained" endIcon={<DownloadIcon />} >CV</CustomButton></Link>
-                      <Box onClick={handleOpenEmoji} sx={{display:'flex', alignItems:'center'}}>
-                        <AddReactionIcon   sx={{fontSize:'50px',color: 'yellow'}}/>
+          <Box className='subTitle'><Typography variant="subtitle1">React | React Native | Growth Hacking</Typography></Box>
+          <Box  sx={{marginTop:'50px', display:{sm:'flex'},  }}>
+                    <Box sx={{display:{xs:'flex'}, border:'5px solid ', borderRadius:'20px', overflow:'hidden', alignItems:{sm:'center'}, width:{xs:'100%',sm:'auto'},marginTop:{xs:'10px',sm:'0'} }}>
+                      <CustomButton variant="text" onClick={handleOpen} sx={{width:{xs:'100%',sm:'auto'}}}>Contact Me</CustomButton>
+                   
+                      <Link href={require("../assets/files/PrasannaCV.pdf")} sx={{width:{xs:'inherit'},borderLeft:'2px solid lightgray' }} download underline="none">
+                        <CustomButton sx={{width:{xs:'inherit',sm:'auto'},}} variant="text" endIcon={<DownloadIcon />} >CV</CustomButton>
+                      </Link>
+                    </Box>
+                      <Box sx={{display:'flex', alignItems:'center', marginLeft:{xs:'0',sm:'10px'}, marginTop:{xs:'10px',sm:'0'}, justifyContent:{xs:'center',sm:'left'} }}>
+                      <IconButton onClick={handleOpenEmoji}  color="primary" aria-label="upload picture" component="label">
+                
+                      <AddReactionIcon   sx={{fontSize:'50px',color: '#ffd100'}}/>
+              </IconButton>
+                        
                       </Box>
                     </Box>
                     
                     
-                  </Box>
                 <Box>
                 </Box>
               </Box>
